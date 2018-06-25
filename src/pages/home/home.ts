@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { NavController } from "ionic-angular";
 import { AngularFireDatabase, AngularFireList } from "angularfire2/database";
-
+import { AuthService } from "../../services/auth.service";
 @Component({
   selector: "page-home",
   templateUrl: "home.html"
@@ -11,9 +11,13 @@ export class HomePage {
 
   constructor(
     public navCtrl: NavController,
-    public afDatabase: AngularFireDatabase
+    public afDatabase: AngularFireDatabase,
+    private auth: AuthService
   ) {
     this.billList = afDatabase.list("/bills");
+  }
+  logout() {
+    this.auth.signOut();
   }
   createBill(name, amount, dueDate) {
     const newBillRef = this.billList.push({});
@@ -36,4 +40,5 @@ export class HomePage {
         }
       );
   }
+  
 }
