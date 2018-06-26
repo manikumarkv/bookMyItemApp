@@ -77,4 +77,7 @@ export class AuthService {
       (err) => {}
     )
   }
+  resetPassword(email: string): Promise<void> {
+    return this.afAuth.auth.sendPasswordResetEmail(email);
+  }
 }

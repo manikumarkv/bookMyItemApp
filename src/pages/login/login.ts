@@ -54,10 +54,7 @@ export class LoginPage {
   signup(){
     this.navCtrl.push(SignupPage);
   }
-
-  ionViewDidLoad() {
-    console.log("ionViewDidLoad LoginPage");
-  }
+  
   loginWithGoogle() {
     this.auth.signInWithGoogle()
       .then(
