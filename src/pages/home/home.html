@@ -23,11 +23,7 @@
     <ion-datetime displayFormat="D MMM, YY" pickerFormat="DD MMM YYYY" [(ngModel)]="dueDate"></ion-datetime>
   </ion-item>
 
-  <button block (click)="createBill(name, amount, dueDate)">
+  <button block ion-button (click)="createBill(name, amount, dueDate)">
     Create Bill
   </button>
-
-  <button block (click)="logout()">
-      Logout
-    </button>
 </ion-content>

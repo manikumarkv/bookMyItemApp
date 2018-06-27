@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the ProductsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { AngularFireDatabase, AngularFireList } from "angularfire2/database";
+import { Product } from '../../app/modals/product';
 
 @IonicPage()
 @Component({
@@ -14,12 +9,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'products.html',
 })
 export class ProductsPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  
+  productsList:  AngularFireList<any>;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public afDatabase: AngularFireDatabase,) {
+    this.productsList = afDatabase.list("/products");
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ProductsPage');
+  createProduct(name, price, discount) {
+    const newProduct = this.productsList.push({})
+    const _newProduct= new Product(newProduct.key, name,'','',price,discount)
+    newProduct.set(_newProduct).then(newproduct => {
+
+    })
   }
 
 }
