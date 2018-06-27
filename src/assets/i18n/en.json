@@ -1,0 +1,17 @@
+{
+    "PAGE_TITLES" : {
+
+    },  
+    "BUTTONS" : {
+        "BTN_SAVE" : "Save",
+        "BTN_ADD" : "Add"
+    },
+    "PLACEHOLDERS": {
+
+    },
+    "LABLES": {
+        "NAME": "Your name is {{name}}",
+        "MENU":"Menu"
+    },
+    "IN_APP" : "ఆవును"
+}

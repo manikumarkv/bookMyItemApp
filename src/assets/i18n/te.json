@@ -1,0 +1,24 @@
+{
+    "PAGE_TITLES" : {
+
+    },  
+    "BUTTONS" : {
+        "BTN_SAVE" : "Save చేయుము",
+        "BTN_ADD" : "Add చేయుము"
+    },
+    "PLACEHOLDERS": {
+
+    },
+    "LABLES": {
+        "NAME": "Your name is {{name}}",
+        "MENU":"Menu"
+    },
+    "MENU": {
+        "HOME":"HOME",
+        "TRANSACTIONS": "మన లావాదేవీలు",
+        "CUSTOMERS": "మన వినియోగదారులు",
+        "PRODUCTS": "మన వస్తువులు"
+    },
+    "IN_APP" : "ఆవును",
+    "FOO": "Foo {{test}}"
+}
