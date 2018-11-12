@@ -1,8 +1,8 @@
 {
   "name": "bookMyItemApp",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
+  "author": "Mani Kumar K V",
+  "homepage": "www.manikumarkv.com",
   "private": true,
   "scripts": {
     "clean": "ionic-app-scripts clean",
@@ -31,6 +31,7 @@
     "@ultimate/ngxerrors": "^1.4.0",
     "angular2-moment": "^1.9.0",
     "angularfire2": "^5.0.0-rc.10",
+    "cordova-android": "7.0.0",
     "cordova-ios": "4.5.4",
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-ionic-keyboard": "^2.0.5",
@@ -58,7 +59,8 @@
       "cordova-plugin-ionic-keyboard": {}
     },
     "platforms": [
-      "ios"
+      "ios",
+      "android"
     ]
   }
 }
