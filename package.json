@@ -31,6 +31,7 @@
     "@ultimate/ngxerrors": "^1.4.0",
     "angular2-moment": "^1.9.0",
     "angularfire2": "^5.0.0-rc.10",
+    "bill-app-models": "^1.0.3",
     "cordova-android": "7.0.0",
     "cordova-ios": "4.5.4",
     "cordova-plugin-device": "^2.0.2",
