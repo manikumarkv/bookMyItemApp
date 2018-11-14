@@ -15,6 +15,7 @@ import {TicketPage } from '../pages/ticket/ticket';
 import {TransactionsPage} from '../pages/transactions/transactions';
 import {CustomersPage} from '../pages/customers/customers';
 import {ProductsPage} from '../pages/products/products';
+import { AvailableProductsPage } from "../pages/available-products/available-products";
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -24,6 +25,7 @@ import { AngularFireAuth } from "angularfire2/auth";
 import { AngularFireDatabaseModule } from "angularfire2/database";
 import { AuthService } from '../services/auth.service';
 import { NgxErrorsModule } from '@ultimate/ngxerrors';
+import { ProductsService } from '../services/products.service';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,7 @@ import { NgxErrorsModule } from '@ultimate/ngxerrors';
     TransactionsPage,
     CustomersPage,
     ProductsPage,
+    AvailableProductsPage
   ],
   imports: [
     BrowserModule,
@@ -70,6 +73,7 @@ import { NgxErrorsModule } from '@ultimate/ngxerrors';
     TransactionsPage,
     CustomersPage,
     ProductsPage,
+    AvailableProductsPage,
   ],
   providers: [
     StatusBar,
@@ -77,6 +81,7 @@ import { NgxErrorsModule } from '@ultimate/ngxerrors';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthService,
     AngularFireAuth,
+    ProductsService,
   ]
 })
 export class AppModule {}

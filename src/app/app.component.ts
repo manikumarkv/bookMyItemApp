@@ -13,6 +13,7 @@ import { TicketPage } from '../pages/ticket/ticket';
 import {TransactionsPage} from '../pages/transactions/transactions';
 import {CustomersPage} from '../pages/customers/customers';
 import {ProductsPage} from '../pages/products/products';
+import { AvailableProductsPage } from "../pages/available-products/available-products";
 
 import { AuthService } from '../services/auth.service';
 
@@ -41,9 +42,10 @@ export class MyApp {
       { title: 'Home', component: HomePage, icon: 'home' },
       { title: 'List', component: ListPage, icon: 'grid' },
       { title: 'Requests', component: TicketPage, icon: 'grid' },
-      { title: 'Products', component: ProductsPage, icon: 'grid' },
+      { title: 'New Product', component: ProductsPage, icon: 'grid' },
       { title: 'Transactions', component: TransactionsPage, icon: 'grid' },
-      { title: 'Customers', component: CustomersPage, icon: 'grid' }
+      { title: 'Customers', component: CustomersPage, icon: 'grid' },
+      {title:'Products', component: AvailableProductsPage, icon:'grid'}
       
     ];
 
