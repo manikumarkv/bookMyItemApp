@@ -15,8 +15,12 @@
   </ion-item>
 
   <ion-item>
-    <ion-label stacked>price</ion-label>
-    <ion-input [(ngModel)]="price" type="number" placeholder="Price"></ion-input>
+    <ion-label stacked>Max retile Price</ion-label>
+    <ion-input [(ngModel)]="unitMrp" type="number" placeholder="Max retile Price"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label stacked>units</ion-label>
+    <ion-input [(ngModel)]="units" type="text" placeholder="Units"></ion-input>
   </ion-item>
 
   <ion-item>
@@ -24,7 +28,7 @@
     <ion-input [(ngModel)]="discount" type="number" placeholder="Discount"></ion-input>
   </ion-item>
 
-  <button ion-button block (click)="createProduct(name, price, discount)">
+  <button ion-button block (click)="createProduct(name, unitMrp, units, discount)">
     Create Product
   </button>
 </ion-content>
