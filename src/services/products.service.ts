@@ -1,19 +1,20 @@
 import { Injectable } from "@angular/core";
-import { Product } from "bill-app-models";
+import Product from "../app/models/product";
 import { Units } from "../app/constants";
 
 @Injectable()
 export class ProductsService {
-  private products: Product[] = [new Product(1,'a', 'a', 'gms', 100, 10), new Product(1,'a', 'a', 'gms', 100, 10), new Product(1,'a', 'a', 'gms', 100, 10), new Product(1,'a', 'a', 'gms', 100, 10)];
-  private units: any[] = [
-    { text: "KG(s)", value: "1000", unit: Units.Weight },
-    { text: "grams", value: "1", unit: Units.Weight },
-    { text: "piece", value: "1", unit: Units.Pieces },
-    { text: "packet", value: "10", unit: Units.Pieces },
-    { text: "liter(s)", value: "1", unit: Units.Liter }
-  ];
+  private products: Product[] = []
+  private units :any[] =[]
+  // private units: any[] = [
+  //   { text: "KG(s)", value: "1000", unit: Units.Weight },
+  //   { text: "grams", value: "1", unit: Units.Weight },
+  //   { text: "piece", value: "1", unit: Units.Pieces },
+  //   { text: "packet", value: "10", unit: Units.Pieces },
+  //   { text: "liter(s)", value: "1", unit: Units.Liter }
+  // ];
 
-  Add(product): void {
+  Add(product: Product): void {
     this.products.push(product);
   }
 

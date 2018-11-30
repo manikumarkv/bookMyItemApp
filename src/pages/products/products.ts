@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams } from "ionic-angular";
 // import { AngularFireDatabase, AngularFireList } from "angularfire2/database";
 // import { Product } from '../../app/modals/product';
 import { ProductsService } from "../../services/products.service";
-import { Product } from "bill-app-models";
+import  Product  from "../../app/models/product";
 
 @IonicPage()
 @Component({

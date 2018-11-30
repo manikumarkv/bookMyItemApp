@@ -1,15 +1,13 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ProductsService } from "../../services/products.service";
-import { Product } from 'bill-app-models';
-
+import  Product  from '../../app/models/product';
 /**
  * Generated class for the AvailableProductsPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-
 @IonicPage()
 @Component({
   selector: 'page-available-products',

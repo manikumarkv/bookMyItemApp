@@ -9,22 +9,38 @@
 
 
 <ion-content padding class="bill-create">
+    <ion-list>
+      <ion-item>
+        <ion-label>Product name</ion-label>
+        <ion-select [(ngModel)]="name">
+          <ion-option *ngFor="let product of availableProducts" value="{{product.id}}">{{product.name}}</ion-option>
+          <!-- <ion-option value="def">def</ion-option>
+          <ion-option value="ghi">ghi</ion-option>
+          <ion-option value="jkl">jkl</ion-option>
+          <ion-option value="mno">mno</ion-option>
+          <ion-option value="pqrs">pqrs</ion-option> -->
+        </ion-select>
+      </ion-item>
+    </ion-list>
   <ion-item>
-    <ion-label stacked>Bill Name</ion-label>
-    <ion-input [(ngModel)]="name" type="text" placeholder="Bill Description?"></ion-input>
+    <ion-label stacked>Quantity</ion-label>
+    <ion-input [(ngModel)]="quantity" type="number" placeholder="Quantity"></ion-input>
   </ion-item>
-
-  <ion-item>
-    <ion-label stacked>Amount</ion-label>
-    <ion-input [(ngModel)]="amount" type="number" placeholder="Amount"></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label>Due Date</ion-label>
-    <ion-datetime displayFormat="D MMM, YY" pickerFormat="DD MMM YYYY" [(ngModel)]="dueDate"></ion-datetime>
-  </ion-item>
-
-  <button block ion-button (click)="createBill(name, amount, dueDate)">
-    Create Bill
+  <button ion-button (click)="addItem(name,quantity)">Add Items</button>
+  <button ion-button (click)="createBill(name, amount, dueDate)">
+    Generate Bill
   </button>
+  <ion-card>
+
+    <ion-card-header>
+      Cart Items
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item  *ngFor="let item of items">
+          <ion-label>{{ item.product.name }} </ion-label> 
+          <ion-label>{{ item.quantity }} </ion-label> 
+      </ion-item>
+    </ion-card-content>
+  
+  </ion-card>
 </ion-content>
