@@ -19,7 +19,7 @@ import { AvailableProductsPage } from "../pages/available-products/available-pro
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
+import { GenerateBillPage } from '../pages/generate-bill/generate-bill';
 import { AngularFireModule } from "angularfire2";
 import { AngularFireAuth } from "angularfire2/auth";
 import { AngularFireDatabaseModule } from "angularfire2/database";
@@ -38,7 +38,8 @@ import { ProductsService } from '../services/products.service';
     TransactionsPage,
     CustomersPage,
     ProductsPage,
-    AvailableProductsPage
+    AvailableProductsPage,
+    GenerateBillPage
   ],
   imports: [
     BrowserModule,
@@ -74,6 +75,7 @@ import { ProductsService } from '../services/products.service';
     CustomersPage,
     ProductsPage,
     AvailableProductsPage,
+    GenerateBillPage
   ],
   providers: [
     StatusBar,

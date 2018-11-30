@@ -3,6 +3,7 @@ import { NavController } from "ionic-angular";
 import { Item } from "../item"
 import  Product  from "../../app/models/product";
 import { ProductsService } from "../../services/products.service";
+import { GenerateBillPage } from "../generate-bill/generate-bill";
 // import { Transaction } from "bill-app-models";
 @Component({
   selector: "page-home",
@@ -10,19 +11,18 @@ import { ProductsService } from "../../services/products.service";
 })
 export class HomePage implements OnInit {
   items: Item[] = [];
+  showContent : boolean = false
   name: string = null;
   quantity: number = 0
   availableProducts: Product[] = []
   constructor(public navCtrl: NavController, public productsService: ProductsService) {
-
   }
 
   ngOnInit() {
-    let pro = new Product(1, 'a', 'a', 'gms', 100, 10);
-    this.productsService.Add(pro)
-    this.productsService.Add(new Product(2,'a', 'a', 'gms', 100, 10))
-    this.productsService.Add(new Product(3,'a', 'a', 'gms', 100, 10))
-    this.productsService.Add(new Product(4,'a', 'a', 'gms', 100, 10))
+    this.productsService.Add(new Product(1, 'abc', 'a', 'gms', 10, 10))
+    this.productsService.Add(new Product(2,'def', 'd', 'gms', 20, 10))
+    this.productsService.Add(new Product(3,'ghi', 'g', 'gms', 30, 10))
+    this.productsService.Add(new Product(4,'jkl', 'j', 'gms', 40, 10))
     this.availableProducts = this.productsService.GetAll();
   }
 
@@ -32,5 +32,13 @@ export class HomePage implements OnInit {
     this.items.push(_item)
     this.quantity = null;
     this.name = ''
+    this.showContent = true
   }
+  click(){
+    this.navCtrl.push(GenerateBillPage,
+      {
+      items : this.items
+      
+      });
+}
 }
