@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Item } from "../item"
-import  Product  from "../../app/models/product";
+
 /**
  * Generated class for the GenerateBillPage page.
  *
