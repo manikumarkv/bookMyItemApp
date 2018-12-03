@@ -15,7 +15,7 @@ import  Product  from "../../app/models/product";
 })
 export class GenerateBillPage {
   selectedItems : Item[] = [];
-  totalBill :number =0;
+  totalBill :number = 0;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
    this.selectedItems = navParams.get('items');
    for(let i=0;i<this.selectedItems.length;i++)
