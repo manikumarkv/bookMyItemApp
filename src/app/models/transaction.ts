@@ -26,4 +26,13 @@ export default class Transaction {
     });
     return totalAmount;
   }
+
+  get totalDiscount(): number {
+    let totalAmount = 0;
+    this.productItems.map(productItem => {
+      totalAmount =
+        totalAmount + productItem.product.getSavingAmount(productItem.quantity);
+    });
+    return totalAmount;
+  }
 }

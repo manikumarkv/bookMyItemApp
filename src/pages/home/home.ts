@@ -24,10 +24,10 @@ export class HomePage implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.productsService.Add(new Product(1, "abc", "a", "gms", 10, 10));
-    this.productsService.Add(new Product(2, "def", "d", "gms", 20, 10));
-    this.productsService.Add(new Product(3, "ghi", "g", "gms", 30, 10));
-    this.productsService.Add(new Product(4, "jkl", "j", "gms", 40, 10));
+    this.productsService.Add(new Product(1, "abc", "a", "gms", 10, 0));
+    this.productsService.Add(new Product(2, "def", "d", "gms", 20, 0));
+    this.productsService.Add(new Product(3, "ghi", "g", "gms", 30, 0));
+    this.productsService.Add(new Product(4, "jkl", "j", "gms", 40, 0));
     this.availableProducts = this.productsService.GetAll();
   }
 
@@ -39,7 +39,7 @@ export class HomePage implements OnInit {
     this.name = "";
     this.showContent = true;
   }
-  click() {
+  generateBill() {
     this.navCtrl.push(GenerateBillPage, {
       transaction: this.newTransaction
     });

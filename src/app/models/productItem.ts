@@ -11,4 +11,7 @@ export default class ProductItem {
   get finalPrice(): number {
       return this.product.getTotalWithDiscount(this.quantity)
   }
+  get totalDiscount(): number {
+      return this.product.getSavingAmount(this.quantity)
+  }
 }

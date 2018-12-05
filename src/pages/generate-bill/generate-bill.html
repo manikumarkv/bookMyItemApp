@@ -6,41 +6,31 @@
 -->
 <ion-card>
   <ion-card-header>
-      <ion-icon ios="ios-cart" md="md-cart"> Cart Items</ion-icon>
+    <ion-icon ios="ios-cart" md="md-cart"> Cart Items</ion-icon>
   </ion-card-header>
   <ion-card-content>
-    <ion-grid >
+    <ion-grid>
       <ion-row>
-        <ion-col>
-          Product Name
-        </ion-col>
-        <ion-col>
-          Quantity
-        </ion-col>
-        <ion-col>
-          Price per unit
-          </ion-col>
+        <ion-col> Product Name </ion-col>
+        <ion-col> Quantity </ion-col>
+        <ion-col> Price per unit </ion-col>
+        <ion-col> Final Price </ion-col>
       </ion-row>
       <ion-row *ngFor="let item of transaction.productItems">
-        <ion-col>
-          {{ item.product.name }}
-        </ion-col>
-        <ion-col>
-          {{ item.quantity }}
-        </ion-col>
-        <ion-col>
-          {{ item.finalPrice }}
-        </ion-col>
+        <ion-col> {{ item.product.name }} </ion-col>
+        <ion-col> {{ item.quantity }} </ion-col>
+        <ion-col> {{ item.product.unitMrp }} </ion-col>
+        <ion-col> {{ item.finalPrice }} </ion-col>
       </ion-row>
       <ion-row>
-        <ion-col>
-        Total Amount:
-        </ion-col>
-        <ion-col>
-        </ion-col>
-        <ion-col>
-          {{ transaction.totalAmount }}
-        </ion-col>
+        <ion-col> Total Amount: </ion-col>
+        <ion-col> </ion-col>
+        <ion-col> {{ transaction.totalAmount }} </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col> Total Discount: </ion-col>
+        <ion-col> </ion-col>
+        <ion-col> {{ transaction.totalDiscount }} </ion-col>
       </ion-row>
     </ion-grid>
   </ion-card-content>
