@@ -21,7 +21,7 @@
           Price per unit
           </ion-col>
       </ion-row>
-      <ion-row *ngFor="let item of selectedItems">
+      <ion-row *ngFor="let item of transaction.productItems">
         <ion-col>
           {{ item.product.name }}
         </ion-col>
@@ -29,7 +29,7 @@
           {{ item.quantity }}
         </ion-col>
         <ion-col>
-          {{ item.product.unitMrp }}
+          {{ item.finalPrice }}
         </ion-col>
       </ion-row>
       <ion-row>
@@ -39,7 +39,7 @@
         <ion-col>
         </ion-col>
         <ion-col>
-          {{ totalBill }}
+          {{ transaction.totalAmount }}
         </ion-col>
       </ion-row>
     </ion-grid>
