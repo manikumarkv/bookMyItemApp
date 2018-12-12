@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import Customer from '../../app/models/customer';
+import { CustomersService } from '../../services/customers.service';
 /**
  * Generated class for the CustomersPage page.
  *
@@ -13,9 +14,13 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   selector: 'page-customers',
   templateUrl: 'customers.html',
 })
-export class CustomersPage {
+export class CustomersPage implements OnInit {
+  public customerlist: Customer[] = [];
+  constructor(public navCtrl: NavController, public navParams: NavParams, public customerService: CustomersService) {
+  }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  ngOnInit() {
+    this.customerlist = this.customerService.GetAll()
   }
 
   ionViewDidLoad() {

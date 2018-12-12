@@ -3,12 +3,14 @@ export default class Customer {
     public firstName: string;
     public lastName: string;
     public phoneNumber? :number;
-    public fullName: string
-    constructor(id: string,firstName: string = "",lastName: string = "",phoneNumber: number) {
+    public fullName: string;
+    public address: string;
+    constructor(id: string,firstName: string = "",lastName: string = "",phoneNumber: number,address: string) {
         this.id = id
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
-        this.fullName = lastName + firstName;
+        this.fullName = firstName +" "+ lastName;
+        this.address= address;
     }
 }

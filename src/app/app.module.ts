@@ -16,7 +16,7 @@ import {TransactionsPage} from '../pages/transactions/transactions';
 import {CustomersPage} from '../pages/customers/customers';
 import {ProductsPage} from '../pages/products/products';
 import { AvailableProductsPage } from "../pages/available-products/available-products";
-
+import {AddCustomerPage } from "../pages/add-customer/add-customer";
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { GenerateBillPage } from '../pages/generate-bill/generate-bill';
@@ -26,7 +26,7 @@ import { AngularFireDatabaseModule } from "angularfire2/database";
 import { AuthService } from '../services/auth.service';
 import { NgxErrorsModule } from '@ultimate/ngxerrors';
 import { ProductsService } from '../services/products.service';
-
+import { CustomersService } from '../services/customers.service';
 @NgModule({
   declarations: [
     MyApp,
@@ -39,7 +39,8 @@ import { ProductsService } from '../services/products.service';
     CustomersPage,
     ProductsPage,
     AvailableProductsPage,
-    GenerateBillPage
+    GenerateBillPage,
+    AddCustomerPage
   ],
   imports: [
     BrowserModule,
@@ -75,7 +76,8 @@ import { ProductsService } from '../services/products.service';
     CustomersPage,
     ProductsPage,
     AvailableProductsPage,
-    GenerateBillPage
+    GenerateBillPage,
+    AddCustomerPage
   ],
   providers: [
     StatusBar,
@@ -84,6 +86,7 @@ import { ProductsService } from '../services/products.service';
     AuthService,
     AngularFireAuth,
     ProductsService,
+    CustomersService
   ]
 })
 export class AppModule {}
