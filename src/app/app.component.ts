@@ -4,7 +4,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { TranslateService } from '@ngx-translate/core';
-
+import { AddCustomerPage }  from '../pages/add-customer/add-customer';
 
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
@@ -45,7 +45,8 @@ export class MyApp {
       { title: 'New Product', component: ProductsPage, icon: 'grid' },
       { title: 'Transactions', component: TransactionsPage, icon: 'grid' },
       { title: 'Customers', component: CustomersPage, icon: 'grid' },
-      {title:'Products', component: AvailableProductsPage, icon:'grid'}
+      {title:'Add Customer', component: AddCustomerPage, icon:'grid'},
+      {title:'Products', component: AvailableProductsPage, icon:'grid'},
       
     ];
 

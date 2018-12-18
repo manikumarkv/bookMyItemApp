@@ -7,15 +7,36 @@
 <ion-header>
 
   <ion-navbar>
-      <button ion-button menuToggle>
-          <ion-icon name="menu"></ion-icon>
-        </button>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>Customers</ion-title>
   </ion-navbar>
 
 </ion-header>
-
-
 <ion-content padding>
-
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          FullName
+        </ion-col>
+        <ion-col>
+          Phone Number
+        </ion-col>
+        <ion-col>
+          Address
+        </ion-col>
+      </ion-row>
+      <ion-row *ngFor="let customer of customerlist">
+        <ion-col>
+            {{ customer.fullName }}
+        </ion-col>
+        <ion-col>
+            {{ customer.phoneNumber }}
+        </ion-col>
+        <ion-col>
+            {{ customer.address }}
+        </ion-col>
+      </ion-row>
+    </ion-grid>
 </ion-content>
