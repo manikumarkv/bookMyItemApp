@@ -23,6 +23,7 @@ export class TransactionsPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TransactionsPage');
+    debugger
     this.availableTransactions = this.tranasactionsService.GetAll()
   }
 
