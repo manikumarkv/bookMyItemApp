@@ -3,6 +3,8 @@ import Customer from "../app/models/customer";
 
 @Injectable()
 export class CustomersService {
+
+  private searchedCustomer : Customer;
   private customers: Customer[] = []
   // private units: any[] = [
   //   { text: "KG(s)", value: "1000", unit: Units.Weight },
@@ -34,6 +36,16 @@ export class CustomersService {
 
   GetAll(): Customer[] {
     return this.customers;
+  }
+
+  GetSearchedCustomer()
+  {
+    return this.searchedCustomer;
+  }
+
+  setSearchedCustomer(customer)
+  {
+    this.searchedCustomer = customer;
   }
 
 }

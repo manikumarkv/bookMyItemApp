@@ -51,24 +51,24 @@
         </ion-col>
       </ion-row>
     </ion-grid>
-    <ion-grid *ngIf="selectedCustomer == false">
+    <ion-grid *ngIf="searchcustomer != null">
      <ion-row>
        <ion-col>Customer Details</ion-col>
      </ion-row>
      <ion-row>
         <ion-col>
-            {{ customer.fullName }}
+            {{ searchcustomer.fullName }}
           </ion-col>
       <ion-col>
-        {{ customer.phoneNumber }}
+        {{ searchcustomer.phoneNumber }}
       </ion-col>
       <ion-col>
-        {{ customer.address }}
+        {{ searchcustomer.address }}
       </ion-col>
      </ion-row>
      <ion-row>
        <ion-col>
-          <button ion-button (click)="changeCustomer()">Change Customer</button>
+          <button ion-button (click)="presentModal()">Change Customer</button>
        </ion-col>
        <ion-col>
           <button ion-button>Print Bill</button>
@@ -77,40 +77,11 @@
     </ion-grid>
   </ion-card-content>
 </ion-card>
-<ion-card>
+<ion-card *ngIf="selectedCustomerBool">
     <ion-card-header>
-    <ion-icon ios="ios-cart" md="md-cart">Customer List</ion-icon>
+    <ion-icon ios="ios-cart" md="md-cart">Customers Search</ion-icon>
     </ion-card-header>
     <ion-card-content>
-        <ion-grid *ngIf="selectedCustomer">
-            <ion-row>
-              <ion-col>
-                FullName
-              </ion-col>
-              <ion-col>
-                Phone Number
-              </ion-col>
-              <ion-col>
-                Address
-              </ion-col>
-              <ion-col>
-                 Select Customer
-                </ion-col>
-            </ion-row>
-            <ion-row *ngFor="let customer of customerlist">
-              <ion-col>
-                  {{ customer.fullName }}
-              </ion-col>
-              <ion-col>
-                  {{ customer.phoneNumber }}
-              </ion-col>
-              <ion-col>
-                  {{ customer.address }}
-              </ion-col>
-              <ion-col>
-                  <button ion-button (click)="selectCustomer(customer)">Choose Customer</button>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
     </ion-card-content>
+    <button ion-button block (click)="presentModal()">Search Customer</button>
 </ion-card>

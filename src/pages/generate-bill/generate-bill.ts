@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { Component, ViewChild} from '@angular/core';
+import { NavController, NavParams, Events } from 'ionic-angular';
 import { Item } from "../item";
 import { CustomersService } from '../../services/customers.service';
-import  Customer  from '../../app/models/customer';
+import Customer from '../../app/models/customer';
+import { ModalController } from 'ionic-angular';
+import { SearchcustomerPage } from '../searchcustomer/searchcustomer';
 /**
  * Generated class for the GenerateBillPage page.
  *
@@ -15,35 +17,40 @@ import  Customer  from '../../app/models/customer';
   templateUrl: 'generate-bill.html',
 })
 export class GenerateBillPage {
-  public customerlist: Customer[]=[];
-  selectedCustomer: boolean = true;
+
+
+  public customerlist: Customer[] = [];
+  selectedCustomerBool: boolean = true;
+  values1: string = "";
+  searchcustomer:Customer = null;
   customer: Customer;
-  selectedItems : Item[] = [];
-  totalBill :number = 0;
-  fullname: string;
- 
-  address : string;
-  phnumber: number;
-  constructor(public navCtrl: NavController, public navParams: NavParams,public customerService: CustomersService) {
-   this.selectedItems = navParams.get('items');
-   for(let i=0;i<this.selectedItems.length;i++)
-   {
-    this.totalBill=this.totalBill+this.selectedItems[i].quantity * this.selectedItems[i].product.unitMrp
-   }
-   this.customerlist=customerService.GetAll()
+  selectedItems: Item[] = [];
+  totalBill: number = 0;
+  selectedCustomer: Customer = null;
+  constructor(public events: Events, public navCtrl: NavController, public navParams: NavParams, public customerService: CustomersService, public modalCtrl: ModalController) {
+    
+    events.subscribe('customer: selected', (selectedcustomer) => {
+      this.searchcustomer = this.customerService.GetSearchedCustomer();
+    } ) 
+    if(navParams.get('items') != null)
+    this.selectedItems = navParams.get('items');
+    for (let i = 0; i < this.selectedItems.length; i++) {
+      this.totalBill = this.totalBill + this.selectedItems[i].quantity * this.selectedItems[i].product.unitMrp
+    }
+    this.customerlist = customerService.GetAll()
   }
 
-  selectCustomer(val)
-  {
-  this.selectedCustomer = false
-  this.customer = val
- }
+  presentModal() {
+    const modal = this.modalCtrl.create(SearchcustomerPage);
+    modal.present();
+    this.selectedCustomerBool=false;
+  }
 
-changeCustomer()
-{
-  this.selectedCustomer= true;
-  this.customer = null
-}
+  changeCustomer() {
+    this.selectedCustomerBool = true;
+    this.customer = null
+  }
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad GenerateBillPage');
   }

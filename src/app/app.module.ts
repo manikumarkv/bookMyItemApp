@@ -5,7 +5,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-
+import {SearchcustomerPage} from '../pages/searchcustomer/searchcustomer';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
@@ -40,7 +40,8 @@ import { CustomersService } from '../services/customers.service';
     ProductsPage,
     AvailableProductsPage,
     GenerateBillPage,
-    AddCustomerPage
+    AddCustomerPage,
+    SearchcustomerPage
   ],
   imports: [
     BrowserModule,
@@ -77,7 +78,8 @@ import { CustomersService } from '../services/customers.service';
     ProductsPage,
     AvailableProductsPage,
     GenerateBillPage,
-    AddCustomerPage
+    AddCustomerPage,
+    SearchcustomerPage
   ],
   providers: [
     StatusBar,
