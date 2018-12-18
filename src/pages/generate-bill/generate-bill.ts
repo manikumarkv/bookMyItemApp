@@ -1,8 +1,11 @@
-import { Component } from "@angular/core";
-import { NavController, NavParams } from "ionic-angular";
+import { Component} from '@angular/core';
+import { NavController, NavParams, Events } from 'ionic-angular';
 import { Item } from "../item";
+import { CustomersService } from '../../services/customers.service';
+import Customer from '../../app/models/customer';
+import { ModalController } from 'ionic-angular';
+import { SearchcustomerPage } from '../searchcustomer/searchcustomer';
 import { Transaction } from "../../app/models";
-
 /**
  * Generated class for the GenerateBillPage page.
  *
@@ -15,9 +18,36 @@ import { Transaction } from "../../app/models";
   templateUrl: "generate-bill.html"
 })
 export class GenerateBillPage {
+
+
+  public customerlist: Customer[] = [];
+  selectedCustomerBool: boolean = true;
+  values1: string = "";
+  searchcustomer:Customer = null;
+  customer: Customer;
+  selectedItems: Item[] = [];
+  selectedCustomer: Customer = null;
   transaction: Transaction;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public events: Events, public navCtrl: NavController, public navParams: NavParams, public customerService: CustomersService, public modalCtrl: ModalController) {
     this.transaction = navParams.get("transaction");
+    events.subscribe('customer: selected', (selectedcustomer) => {
+      this.searchcustomer = this.customerService.GetSearchedCustomer();
+    } ) 
+    if(navParams.get('items') != null)
+    this.selectedItems = navParams.get('items');
+    
+    this.customerlist = customerService.GetAll()
+  }
+
+  presentModal() {
+    const modal = this.modalCtrl.create(SearchcustomerPage);
+    modal.present();
+    this.selectedCustomerBool=false;
+  }
+
+  changeCustomer() {
+    this.selectedCustomerBool = true;
+    this.customer = null
   }
 
   ionViewDidLoad() {

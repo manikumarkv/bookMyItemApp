@@ -12,7 +12,6 @@ import { SignupPage } from '../signup/signup';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: "page-login",
   templateUrl: "login.html"

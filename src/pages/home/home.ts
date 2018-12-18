@@ -6,6 +6,8 @@ import { ProductsService } from "../../services/products.service";
 import { Transaction } from "../../app/models";
 import ProductItem from "../../app/models/productItem";
 import { GenerateBillPage } from "../generate-bill/generate-bill";
+import Customer from "../../app/models/customer";
+import { CustomersService } from "../../services/customers.service";
 // import { Transaction } from "bill-app-models";
 @Component({
   selector: "page-home",
@@ -15,12 +17,14 @@ export class HomePage implements OnInit {
   items: Item[] = [];
   showContent: boolean = false;
   name: string = null;
+
+  newTransaction: Transaction = new Transaction();
   quantity: number = 0;
   availableProducts: Product[] = [];
-  newTransaction: Transaction = new Transaction();
   constructor(
     public navCtrl: NavController,
-    public productsService: ProductsService
+    public productsService: ProductsService,
+    public customerService: CustomersService
   ) {}
 
   ngOnInit() {
@@ -29,6 +33,52 @@ export class HomePage implements OnInit {
     this.productsService.Add(new Product(3, "ghi", "g", "gms", 30, 0));
     this.productsService.Add(new Product(4, "jkl", "j", "gms", 40, 0));
     this.availableProducts = this.productsService.GetAll();
+
+    this.customerService.Add(
+      new Customer(
+        Math.random().toString(),
+        "Akshay",
+        "Goud",
+        1234567890,
+        "mantri"
+      )
+    );
+    this.customerService.Add(
+      new Customer(
+        Math.random().toString(),
+        "Karthik",
+        "Naidu",
+        1234567890,
+        "mantri"
+      )
+    );
+    this.customerService.Add(
+      new Customer(
+        Math.random().toString(),
+        "Naveen",
+        "Manikanta",
+        1234567890,
+        "mantri"
+      )
+    );
+    this.customerService.Add(
+      new Customer(
+        Math.random().toString(),
+        "Saikumar",
+        "kumar",
+        1234567890,
+        "mantri"
+      )
+    );
+    this.customerService.Add(
+      new Customer(
+        Math.random().toString(),
+        "Vikyath",
+        "Reddy",
+        1234567890,
+        "mantri"
+      )
+    );
   }
 
   addItem(productid, quantity) {
@@ -42,6 +92,11 @@ export class HomePage implements OnInit {
   generateBill() {
     this.navCtrl.push(GenerateBillPage, {
       transaction: this.newTransaction
+    });
+  }
+  click() {
+    this.navCtrl.push(GenerateBillPage, {
+      items: this.items
     });
   }
 }

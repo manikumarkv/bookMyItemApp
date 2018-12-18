@@ -4,6 +4,14 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
+<ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Generate Bill</ion-title>
+    </ion-navbar>
+  </ion-header>
 <ion-card>
   <ion-card-header>
     <ion-icon ios="ios-cart" md="md-cart"> Cart Items</ion-icon>
@@ -33,5 +41,37 @@
         <ion-col> {{ transaction.totalDiscount }} </ion-col>
       </ion-row>
     </ion-grid>
+    <ion-grid *ngIf="searchcustomer != null">
+     <ion-row>
+       <ion-col>Customer Details</ion-col>
+     </ion-row>
+     <ion-row>
+        <ion-col>
+            {{ searchcustomer.fullName }}
+          </ion-col>
+      <ion-col>
+        {{ searchcustomer.phoneNumber }}
+      </ion-col>
+      <ion-col>
+        {{ searchcustomer.address }}
+      </ion-col>
+     </ion-row>
+     <ion-row>
+       <ion-col>
+          <button ion-button (click)="presentModal()">Change Customer</button>
+       </ion-col>
+       <ion-col>
+          <button ion-button>Print Bill</button>
+       </ion-col>
+     </ion-row>
+    </ion-grid>
   </ion-card-content>
+</ion-card>
+<ion-card *ngIf="selectedCustomerBool">
+    <ion-card-header>
+    <ion-icon ios="ios-cart" md="md-cart">Customers Search</ion-icon>
+    </ion-card-header>
+    <ion-card-content>
+    </ion-card-content>
+    <button ion-button block (click)="presentModal()">Search Customer</button>
 </ion-card>
