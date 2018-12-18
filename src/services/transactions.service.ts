@@ -6,8 +6,8 @@ export class TranasactionsService {
   private transactions: Transaction[] = []
 
 
-  Add(product: Transaction): void {
-    this.transactions.push(product);
+  Add(transaction: Transaction): void {
+    this.transactions.push(transaction);
   }
 
   Remove(id): void {

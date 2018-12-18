@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { TranasactionsService } from '../../services/transactions.service';
+import { Transaction } from '../../app/models';
 
 /**
  * Generated class for the TransactionsPage page.
@@ -14,12 +16,14 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'transactions.html',
 })
 export class TransactionsPage {
+  availableTransactions: Transaction[] =[]
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public tranasactionsService : TranasactionsService) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TransactionsPage');
+    this.availableTransactions = this.tranasactionsService.GetAll()
   }
 
 }

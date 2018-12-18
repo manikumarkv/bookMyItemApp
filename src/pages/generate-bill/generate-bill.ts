@@ -2,6 +2,7 @@ import { Component} from '@angular/core';
 import { NavController, NavParams, Events } from 'ionic-angular';
 import { Item } from "../item";
 import { CustomersService } from '../../services/customers.service';
+import { TranasactionsService } from '../../services/transactions.service';
 import Customer from '../../app/models/customer';
 import { ModalController } from 'ionic-angular';
 import { SearchcustomerPage } from '../searchcustomer/searchcustomer';
@@ -28,7 +29,7 @@ export class GenerateBillPage {
   selectedItems: Item[] = [];
   selectedCustomer: Customer = null;
   transaction: Transaction;
-  constructor(public events: Events, public navCtrl: NavController, public navParams: NavParams, public customerService: CustomersService, public modalCtrl: ModalController) {
+  constructor(public events: Events, public navCtrl: NavController, public navParams: NavParams, public customerService: CustomersService, public modalCtrl: ModalController, public tranasactionsService: TranasactionsService) {
     this.transaction = navParams.get("transaction");
     events.subscribe('customer: selected', (selectedcustomer) => {
       this.searchcustomer = this.customerService.GetSearchedCustomer();
@@ -48,6 +49,12 @@ export class GenerateBillPage {
   changeCustomer() {
     this.selectedCustomerBool = true;
     this.customer = null
+  }
+
+
+  confirmBill() {
+    this.transaction.updateCustomer(this.searchcustomer)
+    this.tranasactionsService.Add(this.transaction)
   }
 
   ionViewDidLoad() {

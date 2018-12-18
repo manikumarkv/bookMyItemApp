@@ -27,6 +27,7 @@ import { AuthService } from '../services/auth.service';
 import { NgxErrorsModule } from '@ultimate/ngxerrors';
 import { ProductsService } from '../services/products.service';
 import { CustomersService } from '../services/customers.service';
+import { TranasactionsService } from '../services/transactions.service';
 @NgModule({
   declarations: [
     MyApp,
@@ -88,7 +89,8 @@ import { CustomersService } from '../services/customers.service';
     AuthService,
     AngularFireAuth,
     ProductsService,
-    CustomersService
+    CustomersService,
+    TranasactionsService
   ]
 })
 export class AppModule {}

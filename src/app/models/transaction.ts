@@ -35,4 +35,8 @@ export default class Transaction {
     });
     return totalAmount;
   }
+
+  updateCustomer(customer: Customer) : void {
+    this.customer = customer
+  }
 }
