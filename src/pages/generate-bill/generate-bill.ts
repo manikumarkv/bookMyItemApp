@@ -7,6 +7,7 @@ import Customer from '../../app/models/customer';
 import { ModalController } from 'ionic-angular';
 import { SearchcustomerPage } from '../searchcustomer/searchcustomer';
 import { Transaction } from "../../app/models";
+import { ToastController } from 'ionic-angular';
 /**
  * Generated class for the GenerateBillPage page.
  *
@@ -29,7 +30,7 @@ export class GenerateBillPage {
   selectedItems: Item[] = [];
   selectedCustomer: Customer = null;
   transaction: Transaction;
-  constructor(public events: Events, public navCtrl: NavController, public navParams: NavParams, public customerService: CustomersService, public modalCtrl: ModalController, public tranasactionsService: TranasactionsService) {
+  constructor(public toastCtrl: ToastController,public events: Events, public navCtrl: NavController, public navParams: NavParams, public customerService: CustomersService, public modalCtrl: ModalController, public tranasactionsService: TranasactionsService) {
     this.transaction = navParams.get("transaction");
     events.subscribe('customer: selected', (selectedcustomer) => {
       this.searchcustomer = this.customerService.GetSearchedCustomer();
@@ -55,6 +56,12 @@ export class GenerateBillPage {
   confirmBill() {
     this.transaction.updateCustomer(this.searchcustomer)
     this.tranasactionsService.Add(this.transaction)
+    const toast = this.toastCtrl.create({
+      message: 'Bill is Confirmed',
+      duration: 1000,
+      position : 'top'
+    });
+    toast.present();
   }
 
   ionViewDidLoad() {

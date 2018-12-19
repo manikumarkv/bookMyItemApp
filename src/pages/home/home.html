@@ -12,21 +12,16 @@
     <ion-list>
       <ion-item>
         <ion-label>Product name</ion-label>
-        <ion-select [(ngModel)]="name">
+        <ion-select [(ngModel)]="name" name="productname">
           <ion-option *ngFor="let product of availableProducts" value="{{product.id}}">{{product.name}}</ion-option>
-          <!-- <ion-option value="def">def</ion-option>
-          <ion-option value="ghi">ghi</ion-option>
-          <ion-option value="jkl">jkl</ion-option>
-          <ion-option value="mno">mno</ion-option>
-          <ion-option value="pqrs">pqrs</ion-option> -->
         </ion-select>
       </ion-item>
     </ion-list>
   <ion-item>
     <ion-label stacked>Quantity</ion-label>
-    <ion-input [(ngModel)]="quantity" type="number" placeholder="Quantity"></ion-input>
+    <ion-input name="quantity" [(ngModel)]="quantity" type="number" placeholder="Quantity"></ion-input>
   </ion-item>
-  <button ion-button block (click)="addItem(name,quantity)">Add Items</button>
+  <button ion-button block (click)="addItem(name,quantity)" [disabled]="!name || !quantity">Add Items</button>
   <ion-card>
     <ion-card-header>
         <ion-icon ios="ios-cart" md="md-cart"> Cart Items</ion-icon>
@@ -40,6 +35,8 @@
         <ion-col>
           Quantity
         </ion-col>
+        <ion-col>
+        </ion-col>
       </ion-row>
       <ion-row *ngFor="let item of newTransaction.productItems">
         <ion-col>
@@ -48,9 +45,12 @@
         <ion-col>
           {{ item.quantity }}
         </ion-col>
+        <ion-col>
+          <button ion-button  (click)="removeItem()">remove</button>
+        </ion-col>
       </ion-row>
     </ion-grid>
-      <button ion-button block (click)="generateBill()">
+      <button ion-button block (click)="generateBill()" >
         Generate Bill
       </button>
     </ion-card-content>

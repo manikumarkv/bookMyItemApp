@@ -8,6 +8,7 @@ import ProductItem from "../../app/models/productItem";
 import { GenerateBillPage } from "../generate-bill/generate-bill";
 import Customer from "../../app/models/customer";
 import { CustomersService } from "../../services/customers.service";
+import { ToastController } from 'ionic-angular';
 // import { Transaction } from "bill-app-models";
 @Component({
   selector: "page-home",
@@ -17,13 +18,14 @@ export class HomePage implements OnInit {
   items: Item[] = [];
   showContent: boolean = false;
   name: string = null;
-
+  productItem: any;
   newTransaction: Transaction = new Transaction();
   quantity: number = 0;
   availableProducts: Product[] = [];
   constructor(
     public navCtrl: NavController,
     public productsService: ProductsService,
+    public toastCtrl: ToastController,
     public customerService: CustomersService
   ) {}
 
@@ -83,8 +85,8 @@ export class HomePage implements OnInit {
 
   addItem(productid, quantity) {
     const pro = this.productsService.Get(Number(productid));
-    let productItem = new ProductItem(pro, quantity);
-    this.newTransaction.addProduct(productItem);
+    this.productItem = new ProductItem(pro, quantity);
+    this.newTransaction.addProduct(this.productItem);
     this.quantity = null;
     this.name = "";
     this.showContent = true;
@@ -94,6 +96,18 @@ export class HomePage implements OnInit {
       transaction: this.newTransaction
     });
   }
+
+  removeItem(val)
+  {
+   this.newTransaction.productItems.pop();
+   const toast = this.toastCtrl.create({
+    message: 'Item is Removed',
+    duration: 1000,
+    position : 'top'
+  });
+  toast.present();
+  }
+
   click() {
     this.navCtrl.push(GenerateBillPage, {
       items: this.items
