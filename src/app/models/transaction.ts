@@ -1,5 +1,5 @@
 // import Customer from "./customer";
-import { Customer, Product } from "./index";
+import { Customer } from "./index";
 import ProductItem from "./productItem";
 
 export default class Transaction {

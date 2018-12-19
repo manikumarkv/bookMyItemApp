@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import Product from "../app/models/product";
-import { Units } from "../app/constants";
+
 
 @Injectable()
 export class ProductsService {
