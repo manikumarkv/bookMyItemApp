@@ -17,10 +17,12 @@ import { ToastController } from 'ionic-angular';
 export class HomePage implements OnInit {
   items: Item[] = [];
   showContent: boolean = false;
+  edit: boolean = false;
   name: string = null;
   productItem: any;
   newTransaction: Transaction = new Transaction();
   quantity: number = 0;
+  editquantity: number;
   availableProducts: Product[] = [];
   constructor(
     public navCtrl: NavController,
@@ -97,7 +99,7 @@ export class HomePage implements OnInit {
     });
   }
 
-  removeItem(val)
+  removeItem()
   {
    this.newTransaction.productItems.pop();
    const toast = this.toastCtrl.create({
@@ -106,8 +108,19 @@ export class HomePage implements OnInit {
     position : 'top'
   });
   toast.present();
-  }
+  } 
 
+  editItem(item)
+  {
+    item.editable=true
+    this.editquantity = item.quantity;
+  }
+saveItem(item, quantity)
+{
+  item.editable=false
+  item.quantity = quantity;
+
+}
   click() {
     this.navCtrl.push(GenerateBillPage, {
       items: this.items

@@ -8,6 +8,7 @@ import { ModalController } from 'ionic-angular';
 import { SearchcustomerPage } from '../searchcustomer/searchcustomer';
 import { Transaction } from "../../app/models";
 import { ToastController } from 'ionic-angular';
+import {HomePage } from '../home/home'
 /**
  * Generated class for the GenerateBillPage page.
  *
@@ -62,6 +63,7 @@ export class GenerateBillPage {
       position : 'top'
     });
     toast.present();
+    this.navCtrl.push(HomePage)
   }
 
   ionViewDidLoad() {

@@ -3,9 +3,11 @@ import Product from "./product";
 export default class ProductItem {
   product: Product;
   quantity: number;
+  editable: boolean;
   constructor(product: Product, quantity: number) {
     this.product = product;
     this.quantity = quantity;
+    this.editable = false;
   }
 
   get finalPrice(): number {

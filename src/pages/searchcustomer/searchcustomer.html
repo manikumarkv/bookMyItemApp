@@ -17,9 +17,11 @@
   </ion-item>
 
   <ion-card-content>
+      <ion-card>
+      <ion-card-content>
     <ion-grid *ngIf="selectedCustomer != null">
-
       <ion-row>
+      
         <ion-col>Customer Details</ion-col>
       </ion-row>
       <ion-row *ngFor="let customer of selectedCustomer">
@@ -34,6 +36,8 @@
         </ion-col>
       </ion-row>
     </ion-grid>
+    </ion-card-content>
+  </ion-card>
     <button ion-button block (click)="closeView()">close</button>
     </ion-card-content>
 </ion-content>

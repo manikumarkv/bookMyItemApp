@@ -42,9 +42,18 @@
         <ion-col>
           {{ item.product.name }}
         </ion-col>
-        <ion-col>
-          {{ item.quantity }}
+        <ion-col >
+          <div *ngIf="item.editable">
+              <ion-input name="editquantity" [(ngModel)]="editquantity" type="number" placeholder="Quantity"></ion-input>
+          </div>
+         <div *ngIf="item.editable == false">
+            {{ item.quantity }}
+         </div>
         </ion-col>
+        <ion-col>
+            <button ion-button  (click)="editItem(item)" *ngIf="item.editable == false">edit</button>
+            <button ion-button  (click)="saveItem(item, editquantity)" *ngIf="item.editable">Save</button>
+          </ion-col>
         <ion-col>
           <button ion-button  (click)="removeItem()">remove</button>
         </ion-col>
