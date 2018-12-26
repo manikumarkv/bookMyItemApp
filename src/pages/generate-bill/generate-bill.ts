@@ -63,7 +63,7 @@ export class GenerateBillPage {
       position : 'top'
     });
     toast.present();
-    this.navCtrl.push(HomePage)
+    this.navCtrl.pop()
   }
 
   ionViewDidLoad() {

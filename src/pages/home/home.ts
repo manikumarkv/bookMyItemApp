@@ -9,6 +9,7 @@ import { GenerateBillPage } from "../generate-bill/generate-bill";
 import Customer from "../../app/models/customer";
 import { CustomersService } from "../../services/customers.service";
 import { ToastController } from 'ionic-angular';
+import { TranasactionsService } from '../../services/transactions.service'
 // import { Transaction } from "bill-app-models";
 @Component({
   selector: "page-home",
@@ -28,14 +29,16 @@ export class HomePage implements OnInit {
     public navCtrl: NavController,
     public productsService: ProductsService,
     public toastCtrl: ToastController,
-    public customerService: CustomersService
+    public customerService: CustomersService,
+    public transactionService : TranasactionsService
   ) {}
 
   ngOnInit() {
-    this.productsService.Add(new Product(1, "abc", "a", "gms", 10, 0));
-    this.productsService.Add(new Product(2, "def", "d", "gms", 20, 0));
-    this.productsService.Add(new Product(3, "ghi", "g", "gms", 30, 0));
-    this.productsService.Add(new Product(4, "jkl", "j", "gms", 40, 0));
+    this.productsService.Add(new Product(1, "abc", "a", "gms", 10, 0,));
+    this.productsService.Add(new Product(2, "def", "d", "gms", 20, 0,));
+    this.productsService.Add(new Product(3, "ghi", "g", "gms", 30, 0,));
+    this.productsService.Add(new Product(4, "jkl", "j", "gms", 40, 0,));
+    
     this.availableProducts = this.productsService.GetAll();
 
     this.customerService.Add(
@@ -97,6 +100,8 @@ export class HomePage implements OnInit {
     this.navCtrl.push(GenerateBillPage, {
       transaction: this.newTransaction
     });
+    this.newTransaction = new Transaction();
+    this.showContent = false;
   }
 
   removeItem()

@@ -6,6 +6,7 @@ export default class Product {
     public unitMrp: number;
     public discount: number;
     public quntiy: number
+   
     constructor(id: number, name: string, code: string, units: string, unitMrp: number, discount: number) {
         this.id = id;
         this.name = name;
