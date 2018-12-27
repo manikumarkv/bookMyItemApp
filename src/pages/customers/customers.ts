@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import Customer from '../../app/models/customer';
 import { CustomersService } from '../../services/customers.service';
-import { EditcustomerPage } from '../editcustomer/editcustomer'
+import { AddCustomerPage } from '../add-customer/add-customer';
 /**
  * Generated class for the CustomersPage page.
  *
@@ -25,7 +25,7 @@ export class CustomersPage implements OnInit {
   }
   
   editCustomer(customer) {
-    this.navCtrl.push(EditcustomerPage, {
+    this.navCtrl.push(AddCustomerPage, {
       customer: customer
     });
   }

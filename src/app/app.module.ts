@@ -28,7 +28,6 @@ import { NgxErrorsModule } from '@ultimate/ngxerrors';
 import { ProductsService } from '../services/products.service';
 import { CustomersService } from '../services/customers.service';
 import { TranasactionsService } from '../services/transactions.service';
-import { EditcustomerPage } from '../pages/editcustomer/editcustomer';
 import { EditproductPage } from '../pages/editproduct/editproduct';
 import {TransactionfiltersPage} from '../pages/transactionfilters/transactionfilters'
 @NgModule({ 
@@ -46,7 +45,6 @@ import {TransactionfiltersPage} from '../pages/transactionfilters/transactionfil
     GenerateBillPage,
     AddCustomerPage,
     SearchcustomerPage,
-    EditcustomerPage,
     EditproductPage,
     TransactionfiltersPage
   ],
@@ -87,7 +85,6 @@ import {TransactionfiltersPage} from '../pages/transactionfilters/transactionfil
     GenerateBillPage,
     AddCustomerPage,
     SearchcustomerPage,
-    EditcustomerPage,
     EditproductPage,
     TransactionfiltersPage
   ],
