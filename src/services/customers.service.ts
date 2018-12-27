@@ -48,4 +48,9 @@ export class CustomersService {
     this.searchedCustomer = customer;
   }
 
+  editCustomer(customer)
+  {
+  this.customers.push(customer)
+  }
+
 }

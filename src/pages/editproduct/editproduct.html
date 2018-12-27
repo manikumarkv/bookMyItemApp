@@ -1,0 +1,34 @@
+<ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Products</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  
+  <ion-content padding>
+    <ion-item>
+      <ion-label stacked>Product name</ion-label>
+      <ion-input [(ngModel)]="product.name" type="text" placeholder="Product name"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label stacked>Max retile Price</ion-label>
+      <ion-input [(ngModel)]="product.unitMrp" type="number" placeholder="Max retile Price"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>units</ion-label>
+      <ion-input [(ngModel)]="product.units" type="text" placeholder="Units"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label stacked>discount</ion-label>
+      <ion-input [(ngModel)]="product.discount" type="number" placeholder="Discount"></ion-input>
+    </ion-item>
+  
+    <button ion-button block (click)="editProduct(product)">
+     Edit Product
+    </button>
+  </ion-content>

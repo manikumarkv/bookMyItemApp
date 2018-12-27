@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ProductsService } from "../../services/products.service";
+import { EditproductPage } from '../editproduct/editproduct'
 import  Product  from '../../app/models/product';
 /**
  * Generated class for the AvailableProductsPage page.
@@ -18,7 +19,11 @@ public products: Product[] = []
   constructor(public navCtrl: NavController, public navParams: NavParams, public productsService: ProductsService) {
     this.products = productsService.GetAll();
   }
-
+  editProduct(product) {
+    this.navCtrl.push(EditproductPage, {
+      product: product
+    });
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad AvailableProductsPage');
   }

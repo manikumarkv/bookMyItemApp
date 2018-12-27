@@ -25,6 +25,8 @@ export class HomePage implements OnInit {
   quantity: number = 0;
   editquantity: number;
   availableProducts: Product[] = [];
+  selectedProduct: Product[] = []
+  productSearch: boolean = false;
   constructor(
     public navCtrl: NavController,
     public productsService: ProductsService,
@@ -88,14 +90,32 @@ export class HomePage implements OnInit {
     );
   }
 
-  addItem(productid, quantity) {
+  addName(val)
+  {
+   this.name=val
+   this.productSearch =true
+  }
+
+  getItems(ev) {
+    var val = ev.target.value;
+    if (val != '') {
+      this.selectedProduct = this.availableProducts.filter((item) => {
+        return (item.name.indexOf(val) > -1);
+      })
+    }
+   
+  }
+
+  addItem(productid,quantity) {
     const pro = this.productsService.Get(Number(productid));
     this.productItem = new ProductItem(pro, quantity);
     this.newTransaction.addProduct(this.productItem);
     this.quantity = null;
     this.name = "";
     this.showContent = true;
+    this.productSearch= false
   }
+
   generateBill() {
     this.navCtrl.push(GenerateBillPage, {
       transaction: this.newTransaction
@@ -104,9 +124,9 @@ export class HomePage implements OnInit {
     this.showContent = false;
   }
 
-  removeItem()
+  removeItem(val)
   {
-   this.newTransaction.productItems.pop();
+   this.newTransaction.productItems.splice(val,1)
    const toast = this.toastCtrl.create({
     message: 'Item is Removed',
     duration: 1000,
@@ -120,15 +140,18 @@ export class HomePage implements OnInit {
     item.editable=true
     this.editquantity = item.quantity;
   }
+
 saveItem(item, quantity)
 {
   item.editable=false
   item.quantity = quantity;
 
 }
-  click() {
+
+click() {
     this.navCtrl.push(GenerateBillPage, {
       items: this.items
     });
   }
+  
 }

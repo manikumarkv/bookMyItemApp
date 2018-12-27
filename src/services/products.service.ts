@@ -40,4 +40,9 @@ export class ProductsService {
   GetUnits(): any[] {
     return this.units;
   }
+
+  editProduct(product)
+  {
+    this.products.push(product);
+  }
 }

@@ -10,7 +10,7 @@ export default class Transaction {
   public dueAmount: number;
   public customerId: string;
   public customer: Customer;
-  public transactionDate: string = "2018-12-11"
+  public transactionDate: string = "2018-12-21"
  
   // id: string,productItems: ProductItem[],paidWith: string,dueAmount: number ,customerId: string, customer: Customer
   constructor() {

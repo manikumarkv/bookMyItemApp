@@ -8,7 +8,7 @@ import { ModalController } from 'ionic-angular';
 import { SearchcustomerPage } from '../searchcustomer/searchcustomer';
 import { Transaction } from "../../app/models";
 import { ToastController } from 'ionic-angular';
-import {HomePage } from '../home/home'
+
 /**
  * Generated class for the GenerateBillPage page.
  *
@@ -36,6 +36,7 @@ export class GenerateBillPage {
     events.subscribe('customer: selected', (selectedcustomer) => {
       this.searchcustomer = this.customerService.GetSearchedCustomer();
     } ) 
+    
     if(navParams.get('items') != null)
     this.selectedItems = navParams.get('items');
     

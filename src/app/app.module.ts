@@ -28,8 +28,10 @@ import { NgxErrorsModule } from '@ultimate/ngxerrors';
 import { ProductsService } from '../services/products.service';
 import { CustomersService } from '../services/customers.service';
 import { TranasactionsService } from '../services/transactions.service';
-import {PopoverPage } from '../pages/popover/popover'
-@NgModule({
+import { EditcustomerPage } from '../pages/editcustomer/editcustomer';
+import { EditproductPage } from '../pages/editproduct/editproduct';
+import {TransactionfiltersPage} from '../pages/transactionfilters/transactionfilters'
+@NgModule({ 
   declarations: [
     MyApp,
     HomePage,
@@ -44,7 +46,9 @@ import {PopoverPage } from '../pages/popover/popover'
     GenerateBillPage,
     AddCustomerPage,
     SearchcustomerPage,
-    PopoverPage
+    EditcustomerPage,
+    EditproductPage,
+    TransactionfiltersPage
   ],
   imports: [
     BrowserModule,
@@ -83,7 +87,9 @@ import {PopoverPage } from '../pages/popover/popover'
     GenerateBillPage,
     AddCustomerPage,
     SearchcustomerPage,
-    PopoverPage
+    EditcustomerPage,
+    EditproductPage,
+    TransactionfiltersPage
   ],
   providers: [
     StatusBar,

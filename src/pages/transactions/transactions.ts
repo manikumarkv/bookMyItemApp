@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,PopoverController,Events} from 'ionic-angular';
 import { TranasactionsService } from '../../services/transactions.service';
 import { Transaction } from '../../app/models';
-import {PopoverPage} from '../popover/popover';
-import { ThrowStmt } from '@angular/compiler';
+
+import { TransactionfiltersPage } from '../transactionfilters/transactionfilters';
+
 
 /**
  * Generated class for the TransactionsPage page.
@@ -60,45 +61,10 @@ public lastYear:number =  Number(this.currentDate.substring(0,4))-1;
       }
     } ) 
     
-    // transactionsService.Add(new Transaction("1",
-    // [new ProductItem( new Product(1, "abc", "a", "gms", 10, 0,"20/12/2018"),10)],"card",0,"12",new Customer(
-    //   Math.random().toString(),
-    //   "Shravani",
-    //   "bhat",
-    //   1234567890,
-    //   "mantri"
-    // )))
-
-    // transactionsService.Add(new Transaction("2",
-    // [new ProductItem( new Product(2, "def", "a", "gms", 10, 0,"21/11/2018"),10)],"card",0,"12",new Customer(
-    //   Math.random().toString(),
-    //   "Kavya",
-    //   "Guduru",
-    //   1234567890,
-    //   "mantri"
-    // )))
-
-    // transactionsService.Add(new Transaction("3",
-    // [new ProductItem( new Product(3, "ghi", "a", "gms", 10, 0,"21/10/2018"),10)],"card",0,"12",new Customer(
-    //   Math.random().toString(),
-    //   "Mahin",
-    //   "Mogal",
-    //   1234567890,
-    //   "mantri"
-    // )))
-
-    // transactionsService.Add(new Transaction("4",
-    // [new ProductItem( new Product(4, "jkl", "a", "gms", 10, 0,"21/12/2017"),10)],"card",0,"12",new Customer(
-    //   Math.random().toString(),
-    //   "Vaishnavi",
-    //   "Pavulrui",
-    //   1234567890,
-    //   "mantri"
-    // )))
   }
 
-  presentPopover(myEvent) {
-    let popover = this.popoverCtrl.create(PopoverPage);
+  transactionFilters(myEvent) {
+    let popover = this.popoverCtrl.create(TransactionfiltersPage);
     popover.present({
       ev: myEvent
     });
