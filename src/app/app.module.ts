@@ -11,7 +11,6 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import {SignupPage} from '../pages/signup/signup';
-import {TicketPage } from '../pages/ticket/ticket';
 import {TransactionsPage} from '../pages/transactions/transactions';
 import {CustomersPage} from '../pages/customers/customers';
 import {ProductsPage} from '../pages/products/products';
@@ -37,7 +36,6 @@ import {TransactionfiltersPage} from '../pages/transactionfilters/transactionfil
     ListPage,
     LoginPage,
     SignupPage,
-    TicketPage,
     TransactionsPage,
     CustomersPage,
     ProductsPage,
@@ -77,7 +75,6 @@ import {TransactionfiltersPage} from '../pages/transactionfilters/transactionfil
     ListPage,
     LoginPage,
     SignupPage,
-    TicketPage,
     TransactionsPage,
     CustomersPage,
     ProductsPage,

@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { NavController } from "ionic-angular";
-import { Item } from "../item";
 import Product from "../../app/models/product";
 import { ProductsService } from "../../services/products.service";
 import { Transaction } from "../../app/models";
@@ -16,7 +15,6 @@ import { TranasactionsService } from '../../services/transactions.service'
   templateUrl: "home.html"
 })
 export class HomePage implements OnInit {
-  items: Item[] = [];
   showContent: boolean = false;
   edit: boolean = false;
   name: string = null;
@@ -148,10 +146,6 @@ saveItem(item, quantity)
 
 }
 
-click() {
-    this.navCtrl.push(GenerateBillPage, {
-      items: this.items
-    });
-  }
+
   
 }
