@@ -9,47 +9,74 @@
 
 
 <ion-content padding class="bill-create">
-    <ion-list>
-      <ion-item>
-        <ion-label>Product name</ion-label>
-        <ion-select [(ngModel)]="name">
-          <ion-option *ngFor="let product of availableProducts" value="{{product.id}}">{{product.name}}</ion-option>
-          <!-- <ion-option value="def">def</ion-option>
-          <ion-option value="ghi">ghi</ion-option>
-          <ion-option value="jkl">jkl</ion-option>
-          <ion-option value="mno">mno</ion-option>
-          <ion-option value="pqrs">pqrs</ion-option> -->
-        </ion-select>
-      </ion-item>
-    </ion-list>
-  <ion-item>
-    <ion-label stacked>Quantity</ion-label>
-    <ion-input [(ngModel)]="quantity" type="number" placeholder="Quantity"></ion-input>
-  </ion-item>
-  <button ion-button block (click)="addItem(name,quantity)">Add Items</button>
-  <ion-card>
-    <ion-card-header>
-        <ion-icon ios="ios-cart" md="md-cart"> Cart Items</ion-icon>
-    </ion-card-header>
-    <ion-card-content *ngIf="showContent">
-      <ion-grid >
+
+  <ion-label stacked>Product Search</ion-label>
+  <ion-searchbar (ionInput)="getItems($event)" (ionCancel)="onCancel($event)">Enter Product Name</ion-searchbar>
+  <ion-list *ngIf="!productSearch">
+  <ion-grid *ngFor="let product of selectedProduct">
       <ion-row>
         <ion-col>
-          Product Name
-        </ion-col>
-        <ion-col>
-          Quantity
+          Available Products
         </ion-col>
       </ion-row>
-      <ion-row *ngFor="let item of newTransaction.productItems">
+      <ion-row>
         <ion-col>
-          {{ item.product.name }}
-        </ion-col>
-        <ion-col>
-          {{ item.quantity }}
+          <a (click)="addName(product.name)"> {{product.name}} </a>
         </ion-col>
       </ion-row>
     </ion-grid>
+  </ion-list>
+  <ion-card  *ngIf="productSearch">
+    <ion-card-content>
+      
+      <ion-label stacked>ProductName</ion-label>
+      <ion-input name="name" [(ngModel)]="name" type="text" placeholder="Product Name"></ion-input>
+      <ion-item>
+        <ion-label stacked>Quantity</ion-label>
+        <ion-input name="quantity" [(ngModel)]="quantity" type="number" placeholder="Quantity"></ion-input>
+      </ion-item>
+      <button ion-button block (click)="addItem(selectedProduct[0].id,quantity)" [disabled]="!name || !quantity">Add
+        Items</button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card  *ngIf="showContent">
+    <ion-card-header>
+      <ion-icon ios="ios-cart" md="md-cart"> Cart Items</ion-icon>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            Product Name
+          </ion-col>
+          <ion-col>
+            Quantity
+          </ion-col>
+          <ion-col>
+          </ion-col>
+        </ion-row>
+        <ion-row *ngFor="let item of newTransaction.productItems; let i = index">
+          <ion-col>
+            {{ item.product.name }}
+          </ion-col>
+          <ion-col>
+            <div *ngIf="item.editable">
+              <ion-input name="editquantity" [(ngModel)]="editquantity" type="number" placeholder="Quantity"></ion-input>
+            </div>
+            <div *ngIf="item.editable == false">
+              {{ item.quantity }}
+            </div>
+          </ion-col>
+          <ion-col>
+            <button ion-button (click)="editItem(item)" *ngIf="item.editable == false">edit</button>
+            <button ion-button (click)="saveItem(item, editquantity)" *ngIf="item.editable">Save</button>
+          </ion-col>
+          <ion-col>
+            <button ion-button (click)="removeItem(i)">remove</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
       <button ion-button block (click)="generateBill()">
         Generate Bill
       </button>

@@ -11,14 +11,11 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-item>
-    <ion-input type="text" value="" [(ngModel)]="customerNumber" name="customerNumber" placeholder="enter phone number"
-      (keyup)="onKey($event)"></ion-input>
-  </ion-item>
-
-  <ion-card-content>
-    <ion-grid *ngIf="selectedCustomer != null">
-
+    <ion-searchbar (ionInput)="searchCustomer($event)"></ion-searchbar>
+  <ion-card-content *ngIf="selectCustomerBool">
+      <ion-card >
+      <ion-card-content>
+    <ion-grid >
       <ion-row>
         <ion-col>Customer Details</ion-col>
       </ion-row>
@@ -34,6 +31,8 @@
         </ion-col>
       </ion-row>
     </ion-grid>
+    </ion-card-content>
+  </ion-card>
     <button ion-button block (click)="closeView()">close</button>
     </ion-card-content>
 </ion-content>

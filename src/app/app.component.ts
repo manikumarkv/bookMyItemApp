@@ -9,7 +9,6 @@ import { AddCustomerPage }  from '../pages/add-customer/add-customer';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
-import { TicketPage } from '../pages/ticket/ticket';
 import {TransactionsPage} from '../pages/transactions/transactions';
 import {CustomersPage} from '../pages/customers/customers';
 import {ProductsPage} from '../pages/products/products';
@@ -41,7 +40,6 @@ export class MyApp {
     this.pages = [
       { title: 'Home', component: HomePage, icon: 'home' },
       { title: 'List', component: ListPage, icon: 'grid' },
-      { title: 'Requests', component: TicketPage, icon: 'grid' },
       { title: 'New Product', component: ProductsPage, icon: 'grid' },
       { title: 'Transactions', component: TransactionsPage, icon: 'grid' },
       { title: 'Customers', component: CustomersPage, icon: 'grid' },

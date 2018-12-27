@@ -4,7 +4,7 @@ import Customer from "../app/models/customer";
 @Injectable()
 export class CustomersService {
 
-  private searchedCustomer : Customer;
+  private searchedCustomer: Customer;
   private customers: Customer[] = []
   // private units: any[] = [
   //   { text: "KG(s)", value: "1000", unit: Units.Weight },
@@ -38,14 +38,16 @@ export class CustomersService {
     return this.customers;
   }
 
-  GetSearchedCustomer()
-  {
+  GetSearchedCustomer() {
     return this.searchedCustomer;
   }
 
-  setSearchedCustomer(customer)
-  {
+  setSearchedCustomer(customer) {
     this.searchedCustomer = customer;
+  }
+
+  editCustomer(customer) {
+    this.customers.push(customer)
   }
 
 }

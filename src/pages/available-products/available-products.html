@@ -13,6 +13,7 @@
       <h2>{{ product.name }}</h2>
       <h3>{{ product.units }}/₹{{ product.unitPrice }}</h3>
       <p>Final Price is {{ product.getTotalWithDiscount(1) }}</p>
+      <button ion-button (click)="editProduct(product)"> Edit Product</button>
     </ion-item>
   </ion-list>
 </ion-content>

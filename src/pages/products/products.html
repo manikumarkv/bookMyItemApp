@@ -28,7 +28,7 @@
     <ion-input [(ngModel)]="discount" type="number" placeholder="Discount"></ion-input>
   </ion-item>
 
-  <button ion-button block (click)="createProduct(name, unitMrp, units, discount)">
+  <button ion-button block (click)="createProduct(name, unitMrp, units, discount)" [disabled]="!name || !unitMrp || !units || !discount">
     Create Product
   </button>
 </ion-content>

@@ -11,7 +11,6 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import {SignupPage} from '../pages/signup/signup';
-import {TicketPage } from '../pages/ticket/ticket';
 import {TransactionsPage} from '../pages/transactions/transactions';
 import {CustomersPage} from '../pages/customers/customers';
 import {ProductsPage} from '../pages/products/products';
@@ -28,21 +27,24 @@ import { NgxErrorsModule } from '@ultimate/ngxerrors';
 import { ProductsService } from '../services/products.service';
 import { CustomersService } from '../services/customers.service';
 import { TranasactionsService } from '../services/transactions.service';
-@NgModule({
+import { EditproductPage } from '../pages/editproduct/editproduct';
+import {TransactionfiltersPage} from '../pages/transactionfilters/transactionfilters'
+@NgModule({ 
   declarations: [
     MyApp,
     HomePage,
     ListPage,
     LoginPage,
     SignupPage,
-    TicketPage,
     TransactionsPage,
     CustomersPage,
     ProductsPage,
     AvailableProductsPage,
     GenerateBillPage,
     AddCustomerPage,
-    SearchcustomerPage
+    SearchcustomerPage,
+    EditproductPage,
+    TransactionfiltersPage
   ],
   imports: [
     BrowserModule,
@@ -73,14 +75,15 @@ import { TranasactionsService } from '../services/transactions.service';
     ListPage,
     LoginPage,
     SignupPage,
-    TicketPage,
     TransactionsPage,
     CustomersPage,
     ProductsPage,
     AvailableProductsPage,
     GenerateBillPage,
     AddCustomerPage,
-    SearchcustomerPage
+    SearchcustomerPage,
+    EditproductPage,
+    TransactionfiltersPage
   ],
   providers: [
     StatusBar,

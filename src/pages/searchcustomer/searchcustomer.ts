@@ -20,7 +20,7 @@ export class SearchcustomerPage {
   userinput: number;
   searchedcustomer: Customer;
   selectedCustomer : Customer[];
-
+  selectCustomerBool: boolean =false
   constructor(public events: Events, public navCtrl: NavController, public navParams: NavParams, public customerService: CustomersService, public modalCtrl: ModalController,public viewCtrl: ViewController) {
     this.customerlist= customerService.GetAll()
   }
@@ -30,14 +30,15 @@ export class SearchcustomerPage {
   }
  
 
-  onKey(event) { // without type info
+  searchCustomer(event) {
     this.userinput = event.target.value;
     this.selectCustomer(this.userinput);
   }
 
   selectCustomer(val)
   {
-  this.selectedCustomer = this.customerlist.filter(x=> x.phoneNumber == val  );
+  this.selectCustomerBool = true
+  this.selectedCustomer = this.customerlist.filter( x => x.phoneNumber == val  );
   }
 
  dismissView(data)

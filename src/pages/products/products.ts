@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { IonicPage, NavController, NavParams } from "ionic-angular";
+import { IonicPage, NavController, NavParams,ToastController } from "ionic-angular";
 // import { AngularFireDatabase, AngularFireList } from "angularfire2/database";
 // import { Product } from '../../app/modals/product';
 import { ProductsService } from "../../services/products.service";
@@ -15,6 +15,7 @@ export class ProductsPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
+    public toastCtrl: ToastController,
     public productsService: ProductsService
   ) {
     // this.productsList = afDatabase.list("/products");
@@ -24,5 +25,11 @@ export class ProductsPage {
     this.productsService.Add(
       new Product(Math.random(), name, "", units, mrp, discount)
     );
+    const toast = this.toastCtrl.create({
+      message: 'product is added',
+      duration: 1000,
+      position : 'top'
+    });
+    toast.present();
   }
 }

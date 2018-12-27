@@ -1,5 +1,5 @@
 // import Customer from "./customer";
-import { Customer, Product } from "./index";
+import { Customer } from "./index";
 import ProductItem from "./productItem";
 
 export default class Transaction {
@@ -10,8 +10,17 @@ export default class Transaction {
   public dueAmount: number;
   public customerId: string;
   public customer: Customer;
-  public transactionDate: Date;
-  constructor() {}
+  public transactionDate: string = "2018-12-21"
+ 
+  // id: string,productItems: ProductItem[],paidWith: string,dueAmount: number ,customerId: string, customer: Customer
+  constructor() {
+    // this.id=id;
+    // this.productItems=productItems;
+    // this.paidWith=paidWith;
+    // this.dueAmount=dueAmount;
+    // this.customerId=customerId;
+    // this.customer=customer
+  }
 
   addProduct(Product: ProductItem): void {
     this.productItems.push(Product);

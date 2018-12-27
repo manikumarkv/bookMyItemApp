@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import Product from "../app/models/product";
-import { Units } from "../app/constants";
+
 
 @Injectable()
 export class ProductsService {
@@ -39,5 +39,10 @@ export class ProductsService {
   }
   GetUnits(): any[] {
     return this.units;
+  }
+
+  editProduct(product)
+  {
+    this.products.push(product);
   }
 }
