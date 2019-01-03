@@ -29,6 +29,7 @@ import { CustomersService } from '../services/customers.service';
 import { TranasactionsService } from '../services/transactions.service';
 import { EditproductPage } from '../pages/editproduct/editproduct';
 import {TransactionfiltersPage} from '../pages/transactionfilters/transactionfilters'
+import { ProductProvider } from '../providers/product/product';
 @NgModule({ 
   declarations: [
     MyApp,
@@ -93,7 +94,8 @@ import {TransactionfiltersPage} from '../pages/transactionfilters/transactionfil
     AngularFireAuth,
     ProductsService,
     CustomersService,
-    TranasactionsService
+    TranasactionsService,
+    ProductProvider
   ]
 })
 export class AppModule {}
