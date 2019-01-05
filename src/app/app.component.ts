@@ -58,19 +58,7 @@ export class MyApp {
       this.translateService.setDefaultLang('en');
       this.translateService.use('en');
     });
-    this.auth.afAuth.authState
-				.subscribe(
-					user => {
-						if (user) {
-							this.rootPage = HomePage;
-						} else {
-							this.rootPage = LoginPage;
-						}
-					},
-					() => {
-						this.rootPage = LoginPage;
-					}
-				);
+    this.rootPage = HomePage;
   }
 
   openPage(page) {

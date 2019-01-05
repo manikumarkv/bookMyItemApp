@@ -56,15 +56,6 @@ import { ProductProvider } from '../providers/product/product';
           deps: [HttpClient]
       }
     }),
-    AngularFireModule.initializeApp({
-      apiKey: "AIzaSyDAT_PmwWEw8ltk5DPGQ1UGiv5EQlNbE8s",
-      authDomain: "billingapp-ccfaf.firebaseapp.com",
-      databaseURL: "https://billingapp-ccfaf.firebaseio.com/",
-      projectId: "billingapp-ccfaf",
-      storageBucket: "billingapp-ccfaf.appspot.com",
-      messagingSenderId: "417451885087"
-    }),
-    AngularFireDatabaseModule,
     NgxErrorsModule
   ],
   bootstrap: [IonicApp],

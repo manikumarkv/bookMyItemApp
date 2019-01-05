@@ -1,14 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import PouchDB from 'pouchdb';
-// import { timestamp } from 'rxjs/operators';
 import { Product } from '../../app/models';
-/*
-  Generated class for the ProductProvider provider.
 
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
+
 @Injectable()
 export class ProductProvider {
   private _DB: any;
