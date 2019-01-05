@@ -1,4 +1,5 @@
 export default class Product {
+    public _id : string
     public id: number;
     public name: string;
     public code: string;
@@ -14,6 +15,7 @@ export default class Product {
         this.units = units;
         this.unitMrp = unitMrp;
         this.discount = discount;
+        this._id = ""
     }
     public getTotalWithoutDiscount(quantity: number): number {
         return quantity * this.unitMrp;

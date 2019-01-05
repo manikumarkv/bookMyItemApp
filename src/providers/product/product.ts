@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import PouchDB from 'pouchdb';
+// import { timestamp } from 'rxjs/operators';
+import { Product } from '../../app/models';
 /*
   Generated class for the ProductProvider provider.
 
@@ -10,9 +12,7 @@ import PouchDB from 'pouchdb';
 @Injectable()
 export class ProductProvider {
   private _DB: any;
-  private success: boolean = true;
-  constructor(public http: HttpClient) {
-    console.log('Hello ProductProvider Provider');
+  constructor() {
     this.initialiseDB();
   }
 
@@ -20,26 +20,9 @@ export class ProductProvider {
     this._DB = new PouchDB('product');
   }
 
-  addProduct(name, code, units, unitMrp, discount) {
-    alert("inside add product")
-    var timeStamp = Math.random(),
-      product = {
-        _id: timeStamp,
-        name: name,
-        code: code,
-        units: units,
-        unitMrp: unitMrp,
-        discount: discount
-      };
-    return new Promise(resolve => {
-      this._DB.put(product).then((err) => {
-        alert("added product")
-      });
-      resolve(true);
-      this._DB.get("17").then((err) => {
-        alert(err.name)
-      });
-    });
-
+  addProduct(product: Product) {
+    const timeStamp = Math.floor((Math.random() * 100) + 1).toString()
+    product._id = timeStamp
+    return this._DB.put(product)
   }
 }

@@ -24,15 +24,18 @@ export class ProductsPage {
   }
 
   createProduct(name, mrp, units, discount) {
-    this.productsService.Add(
-      new Product(Math.random(), name, "", units, mrp, discount)
-    );
+    const pro = new Product(Math.random(), name, "", units, mrp, discount)
+    
     const toast = this.toastCtrl.create({
       message: 'product is added',
       duration: 1000,
       position : 'top'
     });
     toast.present();
-    this.productprovider.addProduct(name,"", mrp, units, discount)
+    this.productprovider.addProduct(pro).then(succ=> {
+      this.productsService.Add(pro);
+    }, err=> {
+      debugger
+    })
   }
 }
