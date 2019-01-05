@@ -7,7 +7,6 @@ import { TranslateService } from '@ngx-translate/core';
 import { AddCustomerPage }  from '../pages/add-customer/add-customer';
 
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import {TransactionsPage} from '../pages/transactions/transactions';
 import {CustomersPage} from '../pages/customers/customers';
@@ -39,7 +38,6 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage, icon: 'home' },
-      { title: 'List', component: ListPage, icon: 'grid' },
       { title: 'New Product', component: ProductsPage, icon: 'grid' },
       { title: 'Transactions', component: TransactionsPage, icon: 'grid' },
       { title: 'Customers', component: CustomersPage, icon: 'grid' },

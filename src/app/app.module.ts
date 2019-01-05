@@ -8,7 +8,6 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import {SearchcustomerPage} from '../pages/searchcustomer/searchcustomer';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import {SignupPage} from '../pages/signup/signup';
 import {TransactionsPage} from '../pages/transactions/transactions';
@@ -34,7 +33,6 @@ import { ProductProvider } from '../providers/product/product';
   declarations: [
     MyApp,
     HomePage,
-    ListPage,
     LoginPage,
     SignupPage,
     TransactionsPage,
@@ -73,7 +71,6 @@ import { ProductProvider } from '../providers/product/product';
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage,
     LoginPage,
     SignupPage,
     TransactionsPage,
