@@ -40,7 +40,9 @@ export class GenerateBillPage {
     if (navParams.get('items') != null)
       this.selectedItems = navParams.get('items');
 
-    this.customerlist = customerService.GetAll()
+     this.customerService.GetAll().then(succ=> {
+      this.customerlist = succ;
+     })
   }
 
   presentModal() {

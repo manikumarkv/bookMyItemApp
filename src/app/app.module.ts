@@ -14,7 +14,7 @@ import {TransactionsPage} from '../pages/transactions/transactions';
 import {CustomersPage} from '../pages/customers/customers';
 import {ProductsPage} from '../pages/products/products';
 import { AvailableProductsPage } from "../pages/available-products/available-products";
-import {AddCustomerPage } from "../pages/add-customer/add-customer";
+import {AddCustomerPage } from "../pages/customers/add-customer/add-customer";
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { GenerateBillPage } from '../pages/generate-bill/generate-bill';

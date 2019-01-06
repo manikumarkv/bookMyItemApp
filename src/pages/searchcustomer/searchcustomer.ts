@@ -22,7 +22,9 @@ export class SearchcustomerPage {
   selectedCustomer : Customer[];
   selectCustomerBool: boolean =false
   constructor(public events: Events, public navCtrl: NavController, public navParams: NavParams, public customerService: CustomersService, public modalCtrl: ModalController,public viewCtrl: ViewController) {
-    this.customerlist= customerService.GetAll()
+    customerService.GetAll().then(succ=> {
+      this.customerlist= succ;
+    })
   }
 
   ionViewDidLoad() {

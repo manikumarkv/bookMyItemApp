@@ -1,16 +1,11 @@
 import { Component, OnInit } from "@angular/core";
 import { NavController, NavParams } from 'ionic-angular';
-import Customer from '../../app/models/customer';
-import { CustomersService } from '../../services/customers.service';
+import Customer from '../../../app/models/customer';
+import { CustomersService } from '../../../services/customers.service';
 import { ToastController } from 'ionic-angular';
-import { Guid } from "../../app/models/guid";
-import { AppUtilsService } from "../../services/utils/app.utils.service";
-/**
- * Generated class for the AddCustomerPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { Guid } from "../../../app/models/guid";
+import { AppUtilsService } from "../../../services/utils/app.utils.service";
+
 
 @Component({
   selector: 'page-add-customer',

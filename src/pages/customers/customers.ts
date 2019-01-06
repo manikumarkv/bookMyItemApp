@@ -2,13 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import Customer from '../../app/models/customer';
 import { CustomersService } from '../../services/customers.service';
-import { AddCustomerPage } from '../add-customer/add-customer';
-/**
- * Generated class for the CustomersPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { AddCustomerPage } from './add-customer/add-customer';
+
 
 @IonicPage()
 @Component({
