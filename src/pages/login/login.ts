@@ -43,22 +43,13 @@ export class LoginPage {
       email: data.email,
       password: data.password
     };
-    this.auth
-      .signInWithEmail(credentials)
-      .then(
-        () => this.navCtrl.setRoot(HomePage),
-        error => (this.loginError = error.message)
-      );
+    
   }
   signup(){
     this.navCtrl.push(SignupPage);
   }
   
   loginWithGoogle() {
-    this.auth.signInWithGoogle()
-      .then(
-        () => this.navCtrl.setRoot(HomePage),
-        error => console.log(error.message)
-      );
-    }
+    this.navCtrl.setRoot(HomePage)
+  }
 }

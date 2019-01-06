@@ -1,41 +1,30 @@
 import { Component } from "@angular/core";
-import { IonicPage, NavController, NavParams,ToastController } from "ionic-angular";
-// import { AngularFireDatabase, AngularFireList } from "angularfire2/database";
-// import { Product } from '../../app/modals/product';
+import { IonicPage, NavController, NavParams, ToastController } from "ionic-angular";
 import { ProductsService } from "../../services/products.service";
-import  Product  from "../../app/models/product";
-import {ProductProvider} from "../../providers/product/product"
- 
-@IonicPage()
+import Product from "../../app/models/product";
+import { ProductProvider } from "../../providers/product/product"
+import { AppUtilsService } from "../../services/utils/app.utils.service";
+
+
 @Component({
   selector: "page-products",
   templateUrl: "products.html"
 })
 export class ProductsPage {
-  // productsList:  AngularFireList<any>;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public toastCtrl: ToastController,
     public productsService: ProductsService,
-    public productprovider: ProductProvider
+    public appUtils: AppUtilsService
   ) {
-    // this.productsList = afDatabase.list("/products");
   }
 
   createProduct(name, mrp, units, discount) {
     const pro = new Product(Math.random(), name, "", units, mrp, discount)
-    
-    const toast = this.toastCtrl.create({
-      message: 'product is added',
-      duration: 1000,
-      position : 'top'
+    this.productsService.Add(pro).then(res => {
+      this.appUtils.showToaster("product added")
+    }).catch(err => {
+      alert("product not added")
     });
-    toast.present();
-    this.productprovider.addProduct(pro).then(succ=> {
-      this.productsService.Add(pro);
-    }, err=> {
-      debugger
-    })
   }
 }

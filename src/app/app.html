@@ -1,6 +1,7 @@
 <ion-menu [content]="content">
   <ion-header>
     <ion-toolbar>
+
       <ion-title>{{'IN_APP' | translate }}</ion-title>
     </ion-toolbar>
   </ion-header>
@@ -8,12 +9,13 @@
   <ion-content>
     <ion-list>
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        <ion-icon name="{{p.icon}}"></ion-icon>
         {{p.title}}
       </button>
     </ion-list>
   </ion-content>
-  <ion-footer >
-      <ion-item  menuClose ion-item href="#" (click)="logout()">Logout</ion-item>
+  <ion-footer>
+    <ion-item menuClose ion-item href="#" (click)="logout()"> <ion-icon name="power"></ion-icon> Logout</ion-item>
   </ion-footer>
 </ion-menu>
 

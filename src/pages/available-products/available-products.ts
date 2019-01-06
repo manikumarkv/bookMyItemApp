@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ProductsService } from "../../services/products.service";
 import { EditproductPage } from '../editproduct/editproduct'
 import  Product  from '../../app/models/product';
+import { ProductsPage } from '../products/products';
 /**
  * Generated class for the AvailableProductsPage page.
  *
@@ -26,6 +27,9 @@ public products: Product[] = []
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad AvailableProductsPage');
+  }
+  navigateToNew() {
+    this.navCtrl.push(ProductsPage, null);
   }
 
 }

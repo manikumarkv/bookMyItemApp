@@ -18,9 +18,7 @@ import {AddCustomerPage } from "../pages/add-customer/add-customer";
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { GenerateBillPage } from '../pages/generate-bill/generate-bill';
-import { AngularFireModule } from "angularfire2";
 import { AngularFireAuth } from "angularfire2/auth";
-import { AngularFireDatabaseModule } from "angularfire2/database";
 import { AuthService } from '../services/auth.service';
 import { NgxErrorsModule } from '@ultimate/ngxerrors';
 import { ProductsService } from '../services/products.service';
@@ -29,6 +27,7 @@ import { TranasactionsService } from '../services/transactions.service';
 import { EditproductPage } from '../pages/editproduct/editproduct';
 import {TransactionfiltersPage} from '../pages/transactionfilters/transactionfilters'
 import { ProductProvider } from '../providers/product/product';
+import {AppUtilsService} from '../services/utils/app.utils.service'
 @NgModule({ 
   declarations: [
     MyApp,
@@ -83,7 +82,8 @@ import { ProductProvider } from '../providers/product/product';
     ProductsService,
     CustomersService,
     TranasactionsService,
-    ProductProvider
+    ProductProvider,
+    AppUtilsService
   ]
 })
 export class AppModule {}

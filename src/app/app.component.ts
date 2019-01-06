@@ -38,11 +38,12 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage, icon: 'home' },
-      { title: 'New Product', component: ProductsPage, icon: 'grid' },
-      { title: 'Transactions', component: TransactionsPage, icon: 'grid' },
-      { title: 'Customers', component: CustomersPage, icon: 'grid' },
-      {title:'Add Customer', component: AddCustomerPage, icon:'grid'},
-      {title:'Products', component: AvailableProductsPage, icon:'grid'},
+      { title: 'Transactions', component: TransactionsPage, icon: 'stats' },
+      { title: 'Customers', component: CustomersPage, icon: 'people' },
+      {title:'Products', component: AvailableProductsPage, icon:'cart'},
+      {title:'Settings', component: HomePage, icon:'settings'},
+      {title:'Help', component: HomePage, icon:'help-circle'},
+      {title:'About us', component: HomePage, icon:'contact'},
       
     ];
 
