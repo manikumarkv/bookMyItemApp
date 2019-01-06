@@ -21,7 +21,9 @@ export class CustomersPage implements OnInit {
   }
 
   ngOnInit() {
-    this.customerlist = this.customerService.GetAll()
+    this.customerService.GetAll().then(succ=> {
+      this.customerlist = succ;
+    })
   }
   
   editCustomer(customer) {

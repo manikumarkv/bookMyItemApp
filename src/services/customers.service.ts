@@ -1,8 +1,11 @@
 import { Injectable } from "@angular/core";
 import Customer from "../app/models/customer";
+import { CustomersDbService } from "./dbServices/customers.db.service";
+import { Guid } from "../app/models/guid";
 
 @Injectable()
 export class CustomersService {
+  constructor(public customersDbService: CustomersDbService){}
 
   private searchedCustomer: Customer;
   private customers: Customer[] = []
@@ -14,28 +17,74 @@ export class CustomersService {
   //   { text: "liter(s)", value: "1", unit: Units.Liter }
   // ];
 
-  Add(Customer: Customer): void {
-    this.customers.push(Customer);
+  Add(Customer: Customer): Promise<any> {
+   
+    Customer._id = Guid.NewGuid();
+    var promise = new Promise((resolve, reject) => {
+      this.customersDbService.Add(Customer).then(succ=> {
+        this.customers.push(Customer);
+        resolve(succ)
+      }).catch(err=> {
+        reject(err)
+      })
+    });
+    return promise;
+
+    
   }
 
   Remove(id): void {
-    this.customers = this.customers.filter(Customer => Customer.id !== id);
+    this.customersDbService.Remove(id).then(succ=> {
+      this.customers = this.customers.filter(Customer => Customer.id !== id);
+    })
+   
   }
 
-  Update(Customer): void {
-    this.customers.map(_Customer => {
-      if (_Customer.id === Customer.id) {
-        _Customer = Customer;
-      }
+  Update(Customer): Promise<any> {
+    var promise = new Promise((resolve, reject) => {
+      this.customersDbService.Update(Customer).then(succ=> {
+        this.customers.map(_Customer => {
+          if (_Customer.id === Customer.id) {
+            _Customer = Customer;
+          }
+        });
+        resolve(succ)
+      }).catch(err=> {
+        reject(err)
+      })
     });
+    return promise;
+
+
+    
+    
   }
 
-  Get(id: string): Customer {
-    return this.customers.filter(Customer => Customer.id === id)[0];
+  Get(id: string): Promise<any> {
+    var promise = new Promise((resolve, reject) => {
+      this.customersDbService.Get(id).then(succ=> {
+       // this.customers = succ.rows.map(data => {return data.doc});
+       debugger 
+       resolve(succ)
+       }).catch(err=> {
+         reject(err)
+       })
+     });
+     return promise;
+   // return this.customers.filter(Customer => Customer.id === id)[0];
   }
 
-  GetAll(): Customer[] {
-    return this.customers;
+  GetAll(): Promise<any> {
+    var promise = new Promise((resolve, reject) => {
+     this.customersDbService.GetAll().then(succ=> {
+       this.customers = succ.rows.map(data => {return data.doc});
+        resolve(this.customers)
+      }).catch(err=> {
+        reject(err)
+      })
+    });
+    return promise;
+   // return this.customers;
   }
 
   GetSearchedCustomer() {

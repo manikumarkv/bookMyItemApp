@@ -1,6 +1,6 @@
 export default class Product {
     public _id : string
-    public id: number;
+    public id: string;
     public name: string;
     public code: string;
     public units: string;
@@ -8,7 +8,7 @@ export default class Product {
     public discount: number;
     public quntiy: number
    
-    constructor(id: number, name: string, code: string, units: string, unitMrp: number, discount: number) {
+    constructor(id: string, name: string, code: string, units: string, unitMrp: number, discount: number) {
         this.id = id;
         this.name = name;
         this.code = code;

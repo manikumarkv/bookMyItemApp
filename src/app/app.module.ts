@@ -23,6 +23,7 @@ import { AuthService } from '../services/auth.service';
 import { NgxErrorsModule } from '@ultimate/ngxerrors';
 import { ProductsService } from '../services/products.service';
 import { CustomersService } from '../services/customers.service';
+import {CustomersDbService} from '../services/dbServices/customers.db.service';
 import { TranasactionsService } from '../services/transactions.service';
 import { EditproductPage } from '../pages/editproduct/editproduct';
 import {TransactionfiltersPage} from '../pages/transactionfilters/transactionfilters'
@@ -81,6 +82,7 @@ import {AppUtilsService} from '../services/utils/app.utils.service'
     AngularFireAuth,
     ProductsService,
     CustomersService,
+    CustomersDbService,
     TranasactionsService,
     ProductProvider,
     AppUtilsService

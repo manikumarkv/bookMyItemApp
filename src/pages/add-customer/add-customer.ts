@@ -3,6 +3,8 @@ import { NavController, NavParams } from 'ionic-angular';
 import Customer from '../../app/models/customer';
 import { CustomersService } from '../../services/customers.service';
 import { ToastController } from 'ionic-angular';
+import { Guid } from "../../app/models/guid";
+import { AppUtilsService } from "../../services/utils/app.utils.service";
 /**
  * Generated class for the AddCustomerPage page.
  *
@@ -20,13 +22,19 @@ export class AddCustomerPage implements OnInit {
   phnumber: number;
   address: string;
   customer: Customer
-  constructor(public navCtrl: NavController, public navParams: NavParams, public customerService: CustomersService, public toastCtrl: ToastController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, 
+    public customerService: CustomersService, 
+    public toastCtrl: ToastController,
+    public appUtils: AppUtilsService) {
     this.customer = navParams.get("customer");
     if (this.customer != undefined) {
-      this.fname = this.customer.firstName;
-      this.lname = this.customer.lastName;
-      this.phnumber = this.customer.phoneNumber;
-      this.address = this.customer.address;
+      this.customerService.Get(this.customer._id).then(succ=> {
+        this.fname = this.customer.firstName;
+        this.lname = this.customer.lastName;
+        this.phnumber = this.customer.phoneNumber;
+        this.address = this.customer.address;
+      })
+      
 
     }
   }
@@ -42,24 +50,19 @@ export class AddCustomerPage implements OnInit {
       this.customer.lastName = lname;
       this.customer.phoneNumber = phnumber;
       this.address = address
-      this.customerService.editCustomer(this.customer)
-      const toast = this.toastCtrl.create({
-        message: 'details edited',
-        duration: 600,
-        position: 'top'
-      });
-      toast.present();
+      this.customerService.Update(this.customer).then(succ=> {
+        this.appUtils.showToaster("customer updated")
+      })
+      
       this.navCtrl.pop()
     }
     else {
       this.customerService.Add(
-        new Customer(Math.random().toString(), fname, lname, phnumber, address)
-      );
-      const toast = this.toastCtrl.create({
-        message: 'User was added successfully',
-        duration: 3000
-      });
-      toast.present();
+        new Customer(Guid.NewGuid(), fname, lname, phnumber, address)
+      ).then(succ=> {
+        this.appUtils.showToaster("customer created successfully")
+      })
+      
     }
     this.fname = "";
     this.lname = "";

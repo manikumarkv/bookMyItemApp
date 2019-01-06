@@ -39,7 +39,7 @@ export class ProductsService {
     });
   }
 
-  Get(id: number): Product {
+  Get(id: string): Product {
     return this.products.filter(product => product.id === id)[0];
   }
 
