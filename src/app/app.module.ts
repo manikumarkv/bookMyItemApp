@@ -8,7 +8,6 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import {SearchcustomerPage} from '../pages/searchcustomer/searchcustomer';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import {SignupPage} from '../pages/signup/signup';
 import {TransactionsPage} from '../pages/transactions/transactions';
@@ -19,9 +18,7 @@ import {AddCustomerPage } from "../pages/add-customer/add-customer";
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { GenerateBillPage } from '../pages/generate-bill/generate-bill';
-import { AngularFireModule } from "angularfire2";
 import { AngularFireAuth } from "angularfire2/auth";
-import { AngularFireDatabaseModule } from "angularfire2/database";
 import { AuthService } from '../services/auth.service';
 import { NgxErrorsModule } from '@ultimate/ngxerrors';
 import { ProductsService } from '../services/products.service';
@@ -29,11 +26,12 @@ import { CustomersService } from '../services/customers.service';
 import { TranasactionsService } from '../services/transactions.service';
 import { EditproductPage } from '../pages/editproduct/editproduct';
 import {TransactionfiltersPage} from '../pages/transactionfilters/transactionfilters'
+import { ProductProvider } from '../providers/product/product';
+import {AppUtilsService} from '../services/utils/app.utils.service'
 @NgModule({ 
   declarations: [
     MyApp,
     HomePage,
-    ListPage,
     LoginPage,
     SignupPage,
     TransactionsPage,
@@ -57,22 +55,12 @@ import {TransactionfiltersPage} from '../pages/transactionfilters/transactionfil
           deps: [HttpClient]
       }
     }),
-    AngularFireModule.initializeApp({
-      apiKey: "AIzaSyDAT_PmwWEw8ltk5DPGQ1UGiv5EQlNbE8s",
-      authDomain: "billingapp-ccfaf.firebaseapp.com",
-      databaseURL: "https://billingapp-ccfaf.firebaseio.com/",
-      projectId: "billingapp-ccfaf",
-      storageBucket: "billingapp-ccfaf.appspot.com",
-      messagingSenderId: "417451885087"
-    }),
-    AngularFireDatabaseModule,
     NgxErrorsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage,
     LoginPage,
     SignupPage,
     TransactionsPage,
@@ -93,7 +81,9 @@ import {TransactionfiltersPage} from '../pages/transactionfilters/transactionfil
     AngularFireAuth,
     ProductsService,
     CustomersService,
-    TranasactionsService
+    TranasactionsService,
+    ProductProvider,
+    AppUtilsService
   ]
 })
 export class AppModule {}

@@ -7,7 +7,6 @@ import { TranslateService } from '@ngx-translate/core';
 import { AddCustomerPage }  from '../pages/add-customer/add-customer';
 
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import {TransactionsPage} from '../pages/transactions/transactions';
 import {CustomersPage} from '../pages/customers/customers';
@@ -39,12 +38,12 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage, icon: 'home' },
-      { title: 'List', component: ListPage, icon: 'grid' },
-      { title: 'New Product', component: ProductsPage, icon: 'grid' },
-      { title: 'Transactions', component: TransactionsPage, icon: 'grid' },
-      { title: 'Customers', component: CustomersPage, icon: 'grid' },
-      {title:'Add Customer', component: AddCustomerPage, icon:'grid'},
-      {title:'Products', component: AvailableProductsPage, icon:'grid'},
+      { title: 'Transactions', component: TransactionsPage, icon: 'stats' },
+      { title: 'Customers', component: CustomersPage, icon: 'people' },
+      {title:'Products', component: AvailableProductsPage, icon:'cart'},
+      {title:'Settings', component: HomePage, icon:'settings'},
+      {title:'Help', component: HomePage, icon:'help-circle'},
+      {title:'About us', component: HomePage, icon:'contact'},
       
     ];
 
@@ -60,19 +59,7 @@ export class MyApp {
       this.translateService.setDefaultLang('en');
       this.translateService.use('en');
     });
-    this.auth.afAuth.authState
-				.subscribe(
-					user => {
-						if (user) {
-							this.rootPage = HomePage;
-						} else {
-							this.rootPage = LoginPage;
-						}
-					},
-					() => {
-						this.rootPage = LoginPage;
-					}
-				);
+    this.rootPage = HomePage;
   }
 
   openPage(page) {

@@ -32,5 +32,8 @@ export class CustomersPage implements OnInit {
   ionViewDidLoad() {
     console.log('ionViewDidLoad CustomersPage');
   }
+  navigateToNew() {
+    this.navCtrl.push(AddCustomerPage);
+  }
 
 }

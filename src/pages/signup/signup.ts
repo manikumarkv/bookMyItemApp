@@ -32,13 +32,14 @@ export class SignupPage {
 			email: data.email,
 			password: data.password
 		};
-		this.auth.signUp(credentials).then(
-			() => {
-        this.auth.sendEmail();
-        this.navCtrl.setRoot(HomePage)        
-      },
-			error => this.signupError = error.message
-		);
+		this.navCtrl.setRoot(HomePage)    
+		// this.auth.signUp(credentials).then(
+		// 	() => {
+    //     this.auth.sendEmail();
+    //     this.navCtrl.setRoot(HomePage)        
+    //   },
+		// 	error => this.signupError = error.message
+		// );
   }
 
 }
