@@ -19,7 +19,7 @@ export class CustomersService {
 
   Add(Customer: Customer): Promise<any> {
    
-    Customer._id = Guid.NewGuid();
+   // Customer._id = Guid.NewGuid();
     var promise = new Promise((resolve, reject) => {
       this.customersDbService.Add(Customer).then(succ=> {
         this.customers.push(Customer);
@@ -99,4 +99,16 @@ export class CustomersService {
     this.customers.push(customer)
   }
 
+  removeAll() {
+    var promise = new Promise((resolve, reject) => {
+      this.customersDbService.removeAll(this.customers).then(res => {
+        this.customers =[]
+        resolve([])
+      }).catch(err => {
+        reject(err)
+      })
+    });
+    return promise;
+  // return this.customersDbService.removeAll(this.customers)
+  }
 }

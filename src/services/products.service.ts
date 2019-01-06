@@ -59,4 +59,16 @@ export class ProductsService {
       return pro;
     })
   }
+
+  removeAll() {
+    var promise = new Promise((resolve, reject) => {
+      this.productDbService.removeAll(this.products).then(res => {
+        this.products =[]
+        resolve([])
+      }).catch(err => {
+        reject(err)
+      })
+    });
+    return promise;
+  }
 }

@@ -17,7 +17,9 @@ export class CustomersPage implements OnInit {
 
   ngOnInit() {
     this.customerService.GetAll().then(succ=> {
-      this.customerlist = succ;
+      this.customerlist = succ.map(record => {
+        return new Customer(record.id, record.firstName, record.lastName, record.phoneNumber, record.address, record._id, record._rev)
+      });
     })
   }
   

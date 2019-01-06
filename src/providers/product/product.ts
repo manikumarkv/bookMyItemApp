@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import PouchDB from 'pouchdb';
 import { Product } from '../../app/models';
 
+import cordovaSqlitePlugin  from 'pouchdb-adapter-cordova-sqlite'
+
 
 @Injectable()
 export class ProductProvider {
@@ -12,7 +14,8 @@ export class ProductProvider {
   }
 
   initialiseDB() {
-    this._DB = new PouchDB('product');
+    PouchDB.plugin(cordovaSqlitePlugin);
+    this._DB = new PouchDB('products', {adapter: 'cordova-sqlite'});
   }
 
   addProduct(product: Product): Promise<any> {
@@ -28,5 +31,11 @@ export class ProductProvider {
   }
   getAll(): Promise<any> {
     return this._DB.readAll();
+  }
+  removeAll(products: Product[]): Promise<any>{
+    products.map(product=> {
+      product["_deleted"] = true
+    })
+    return this._DB.destroy(products)
   }
 }

@@ -1,8 +1,8 @@
 {
-  "name": "bookMyItemApp",
+  "name": "com.mani.bookmyitem",
   "version": "0.0.1",
   "author": "Mani Kumar K V",
-  "homepage": "www.manikumarkv.com",
+  "homepage": "https://.manikumarkv.com",
   "private": true,
   "scripts": {
     "clean": "ionic-app-scripts clean",
@@ -44,6 +44,7 @@
     "ionic-angular": "3.9.2",
     "ionicons": "3.0.0",
     "pouchdb": "^7.0.0",
+    "pouchdb-adapter-cordova-sqlite": "^2.0.5",
     "rxjs": "5.5.11",
     "sw-toolbox": "3.6.0",
     "zone.js": "0.8.26"

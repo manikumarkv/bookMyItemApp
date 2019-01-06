@@ -14,6 +14,7 @@ import {ProductsPage} from '../pages/products/products';
 import { AvailableProductsPage } from "../pages/available-products/available-products";
 
 import { AuthService } from '../services/auth.service';
+import { DeveloperActionsPage } from '../pages/developer-actions/developer-actions';
 
 @Component({
   templateUrl: 'app.html'
@@ -44,6 +45,7 @@ export class MyApp {
       {title:'Settings', component: HomePage, icon:'settings'},
       {title:'Help', component: HomePage, icon:'help-circle'},
       {title:'About us', component: HomePage, icon:'contact'},
+      {title: 'Developer Actions', component: DeveloperActionsPage, icon:'bug'}
       
     ];
 
