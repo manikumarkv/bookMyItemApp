@@ -34,8 +34,9 @@ import { ProductsService } from '../services/products.service';
 import { CustomersService } from '../services/customers.service';
 import { CustomersDbService } from '../services/dbServices/customers.db.service';
 import { TranasactionsService } from '../services/transactions.service';
-import { ProductProvider } from '../providers/product/product';
-import { AppUtilsService } from '../services/utils/app.utils.service'
+
+import { AppUtilsService } from '../services/utils/app.utils.service';
+import {ProductsDbService} from '../services/dbServices/products.db.service';
 @NgModule({
   declarations: [
     MyApp,
@@ -92,7 +93,7 @@ import { AppUtilsService } from '../services/utils/app.utils.service'
     CustomersService,
     CustomersDbService,
     TranasactionsService,
-    ProductProvider,
+    ProductsDbService,
     AppUtilsService
   ]
 })

@@ -7,7 +7,7 @@ import cordovaSqlitePlugin  from 'pouchdb-adapter-cordova-sqlite'
 
 
 @Injectable()
-export class ProductProvider {
+export class ProductsDbService {
   private _DB: any;
   constructor() {
     this.initialiseDB();
@@ -18,18 +18,17 @@ export class ProductProvider {
     this._DB = new PouchDB('products', {adapter: 'cordova-sqlite'});
   }
 
-  addProduct(product: Product): Promise<any> {
-    const timeStamp = Math.floor((Math.random() * 100) + 1).toString()
-    product._id = timeStamp
+  Add(product: Product): Promise<any> {
+    
     return this._DB.put(product)
   }
-  updateProduct(product: Product): Promise<any> {
+  Update(product: Product): Promise<any> {
     return this._DB.patch(product)
   }
-  deleteProduct(id: string): Promise<any> {
+  Remove(id: string): Promise<any> {
     return this._DB.delete(id)
   }
-  getAll(): Promise<any> {
+  GetAll(): Promise<any> {
     return this._DB.readAll();
   }
   removeAll(products: Product[]): Promise<any>{

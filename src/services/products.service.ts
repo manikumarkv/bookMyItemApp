@@ -1,20 +1,20 @@
 import { Injectable } from "@angular/core";
 import Product from "../app/models/product";
-import { ProductProvider } from "../providers/product/product";
+import { ProductsDbService } from '../services/dbServices/products.db.service'
 
 
 @Injectable()
 export class ProductsService {
   private products: Product[] = []
   private units: any[] = []
-  constructor(public productDbService: ProductProvider) {
+  constructor(public productDbService: ProductsDbService) {
 
   }
 
 
   Add(product: Product): Promise<any> {
     var promise = new Promise((resolve, reject) => {
-      this.productDbService.addProduct(product).then(res => {
+      this.productDbService.Add(product).then(res => {
         this.products.push(product);
         resolve(product)
       }).catch(err => {
@@ -25,9 +25,19 @@ export class ProductsService {
 
   }
 
-  Remove(id): void {
+  Remove(id): Promise<any> {
 
-    this.products = this.products.filter(product => product.id !== id);
+    var promise = new Promise((resolve, reject) => {
+      this.productDbService.Remove(id).then(succ => {
+        this.products = this.products.filter(product => product.id !== id);
+        resolve(succ)
+      }).catch(err=> {
+        reject(err)
+      })
+    });
+    return promise;
+    
+
   }
 
   Update(product): void {
@@ -63,7 +73,7 @@ export class ProductsService {
   removeAll() {
     var promise = new Promise((resolve, reject) => {
       this.productDbService.removeAll(this.products).then(res => {
-        this.products =[]
+        this.products = []
         resolve([])
       }).catch(err => {
         reject(err)

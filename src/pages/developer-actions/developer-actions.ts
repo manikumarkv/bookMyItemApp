@@ -3,15 +3,9 @@ import { NavController, NavParams } from 'ionic-angular';
 import { ProductsService } from '../../services/products.service';
 import { Product, Customer } from '../../app/models';
 import { Guid } from '../../app/models/guid';
-import { ProductProvider } from '../../providers/product/product';
 import { CustomersService } from '../../services/customers.service';
 
-/**
- * Generated class for the DeveloperActionsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 
 @Component({
   selector: 'page-developer-actions',
